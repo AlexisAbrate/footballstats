@@ -18,4 +18,17 @@ export class TeamsService {
     console.log(rep)
     return rep;
   }
+
+
+  private _url_fixture_team1 = 'http://localhost:8282/fixtures/team/' 
+  private _url_fixture_team2 = '/season/2021'
+
+  getFixtures(id: Number) {
+    console.log(id)
+    var rep = this._http.get(this._url_fixture_team1 + id + this._url_fixture_team2)
+    console.log(rep)
+    return rep
+    
+  }
+
 }

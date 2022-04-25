@@ -10,10 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TeamComponent implements OnInit {
 
-  response: any
+  response_infos: any
+  response_fixture: any
   team : any
   venue : any
   _id : any
+  fixture: [] | any
 
   constructor(private service : TeamsService, private route : ActivatedRoute) {
 
@@ -26,11 +28,20 @@ export class TeamComponent implements OnInit {
       //this._id = params['id']
       console.log(this._id)
       this.service.getTeam(this._id).subscribe(data => {
-        this.response = data;
-        this.team = this.response.team;
+        this.response_infos = data;
+        this.team = this.response_infos.team;
         console.log(this.team)
-        this.venue = this.response.venue;
+        this.venue = this.response_infos.venue;
       })
+      this.service.getFixtures(this._id).subscribe(data => {
+          this.fixture = data
+          console.log(this.fixture)
+        });
+
+
+     
+
+
     //})
 
 

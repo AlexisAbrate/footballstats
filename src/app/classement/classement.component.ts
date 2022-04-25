@@ -21,7 +21,7 @@ export class ClassementComponent implements OnInit {
 
   constructor(private standingService : StandingService, private router : Router, private route : ActivatedRoute) { 
 
-    this.standingService.getStandings().subscribe(data => {
+    this.standingService.getStandings(61).subscribe(data => {
       this.response = data
       console.log(this.response)
       this.teams = this.response.league.standings[0]

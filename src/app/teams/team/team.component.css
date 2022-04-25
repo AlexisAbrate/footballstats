@@ -1,0 +1,49 @@
+#cardInfo {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 50px;
+    width: 300px;
+}
+
+#logo {
+    align-self: center;
+}
+
+#stadeInfos {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 50px;
+    width: 300px;
+}
+
+#infos {
+    position: relative;
+    top : 5px;
+    left: -350px;
+    
+}
+
+#fixture {
+
+    position: absolute;
+    top : 80px;
+    left : 450px;
+    
+    
+}
+
+
+.cadre-table-scroll {
+    display: inline-block;
+    height: 30em;
+    width: 50em;
+    overflow-y: scroll;
+  }
+  .table-scroll thead thead {
+    position: sticky;
+    top: 0;
+  }
+  .table-scroll tfoot td {
+    position: sticky;
+    bottom: 0;
+  }

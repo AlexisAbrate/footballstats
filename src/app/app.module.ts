@@ -7,7 +7,10 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ClassementComponent } from './classement/classement.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TeamComponent } from './teams/team/team.component'
+import { TeamComponent } from './teams/team/team.component';
+import { LoginComponent } from './login/login.component';
+import { FooterComponent } from './footer/footer.component';
+import { FixtureComponent } from './fixture/fixture.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { TeamComponent } from './teams/team/team.component'
     HeaderComponent,
     HomeComponent,
     ClassementComponent,
-    TeamComponent
+    TeamComponent,
+    LoginComponent,
+    FooterComponent,
+    FixtureComponent
   ],
   imports: [
     BrowserModule,

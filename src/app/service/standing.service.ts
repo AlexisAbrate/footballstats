@@ -17,8 +17,8 @@ export class StandingService {
 
   private _url_classement = 'http://localhost:8282/classement'
 
-  getStandings(){
-    var rep = this._http.get(this._url_classement+"/2021/"+"61")
+  getStandings(id : Number){
+    var rep = this._http.get(this._url_classement+"/2021/"+id)
     console.log(rep)
     return rep;
 }
