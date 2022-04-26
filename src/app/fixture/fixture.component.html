@@ -1,1 +1,67 @@
-{{events[0].time.elapsed}}
+<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src={{teams.home.logo}} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title" style="text-align: center">{{teams.home.name}}</h5>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+        <div class="row mt-3"> 
+            <h2 style="text-align: center" >{{score.fulltime.home}} - {{score.fulltime.away}}</h2>
+        </div>
+        <br>
+        <div class="row mt-3"> 
+            
+        </div>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <img class="card-img-top" src={{teams.away.logo}}  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title" style="text-align: center">{{teams.away.name}}</h5>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="container">
+    La classe .mt permet de rajouter une marge externe supérieure
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <img class="card-img-top" src={{teams.home.logo}} alt="Card image cap">
+        </div>
+        <div class="col-md-3">
+            {{score.fulltime.home}} - {{score.fulltime.away}}
+        </div>
+        <div class="col-md-4 bg-success">
+            .col-12 par défaut / .col-3 pour les fenêtres >= 768px
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col col-md-3 bg-info">
+            .col (= .col-4 ici) par défaut / .col-3 à partir de 768px
+        </div>
+        <div class="col col-md-6 bg-warning">
+            .col (= .col-4 ici) par défaut / .col-6 à partir de 768px
+        </div>
+        <div class="col col-md-3 bg-success">
+            .col (= .col-4 ici) par défaut / .col-3 à partir de 768px
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 bg-info">
+            .col-12 puis .col3 dès 768px puis .col4 dès 992px
+        </div>
+        <div class="col-md-6 col-lg-4 bg-warning">
+            .col-12 puis .col6 dès 768px puis .col4 dès 992px
+        </div>
+        <div class="col-md-3 col-lg-4 bg-success">
+            .col-12 puis .col3 dès 768px puis .col4 dès 992px
+        </div>
+    </div>
+</div>
+-->

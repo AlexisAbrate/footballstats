@@ -16,6 +16,7 @@ export class TeamComponent implements OnInit {
   venue : any
   _id : any
   fixture: [] | any
+  players: [] | any
 
   constructor(private service : TeamsService, private route : ActivatedRoute) {
 
@@ -37,6 +38,10 @@ export class TeamComponent implements OnInit {
           this.fixture = data
           console.log(this.fixture)
         });
+
+        this.service.getPlayers(this._id).subscribe(data => {
+          this.players = data
+        })
 
 
      

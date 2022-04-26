@@ -31,4 +31,11 @@ export class TeamsService {
     
   }
 
+  private _url_players = 'http://localhost8282/teams/players/teamid/'
+
+  getPlayers(id: Number) {
+    var rep = this._http.get(this._url_players+id)
+    return rep
+  }
+
 }

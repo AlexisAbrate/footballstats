@@ -11,6 +11,7 @@ import { TeamComponent } from './teams/team/team.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { FixtureComponent } from './fixture/fixture.component';
+import { PlayersComponent } from './players/players.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FixtureComponent } from './fixture/fixture.component';
     TeamComponent,
     LoginComponent,
     FooterComponent,
-    FixtureComponent
+    FixtureComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,

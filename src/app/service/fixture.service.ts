@@ -10,7 +10,7 @@ export class FixtureService {
 
    }
 
-   private _url_fixture = 'http://localhost:8282/fixture/id/'
+   private _url_fixture = 'http://localhost:8282/fixtures/id/'
 
    getFixtureSpe(id: Number) {
      var rep = this._http.get(this._url_fixture+id)
