@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { FixtureComponent } from './fixture/fixture.component';
 import { PlayersComponent } from './players/players.component';
+import { ChoixChampionnatClassementComponent } from './choix-championnat-classement/choix-championnat-classement.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { PlayersComponent } from './players/players.component';
     LoginComponent,
     FooterComponent,
     FixtureComponent,
-    PlayersComponent
+    PlayersComponent,
+    ChoixChampionnatClassementComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

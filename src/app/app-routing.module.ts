@@ -8,13 +8,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FixtureComponent } from './fixture/fixture.component';
+import { ChoixChampionnatService } from './service/choix-championnat.service';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'classement', component: ClassementComponent},
   {path: 'team/:id', component : TeamComponent},
   {path: 'login', component : LoginComponent},
-  {path: 'fixture/:id', component : FixtureComponent}
+  {path: 'fixture/:id', component : FixtureComponent},
+  {path: 'choixchamp', component: ChoixChampionnatService},
+  {path: 'calendar/:id/:journee/:season', component: CalendarComponent}
 ];
 
 @NgModule({

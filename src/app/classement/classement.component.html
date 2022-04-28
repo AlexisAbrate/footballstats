@@ -5,31 +5,57 @@
 </head>
 <body>
   <section class="content-info">
-    <div class="container">
+    <div class="container" id="nom_ligue">
       <div class="row justify-content-center"> 
         <h2>Classement {{response.league.name}}</h2>
+        <img src={{response.league.logo}} style="width: 100px; height: 100px">
       </div>
     </div>
     
-    <div class="container paddings-mini">
-      <div class="row">
-        <div class="col-lg-12">
-          
-          <table class="table-responsive table-hover result-point table-striped" id="classement">
-            <thead class="point-table-head">
-              <tr><th>Classement</th><th>Nom equipe</th><th>Point</th><th>Played</th><th>Win</th><th>Lose</th><th>Draw</th><th>Goalaverage</th><th>Form</th></tr>
-            </thead>
-            <tbody id="bodyTableau" class="text-center">
-              <tr *ngFor="let team of teams">
-                <td>{{team.rank}}</td><td><a [routerLink]="['/team/', team.team.id]">{{team.team.name}}</a></td><td>{{team.points}}</td><td>{{team.all.played}}</td><td>{{team.all.win}}</td><td>{{team.all.lose}}</td><td>{{team.all.draw}}</td><td>{{team.goalsDiff}}</td><td>{{team.form}}</td>
-              </tr>  
-              
-            </tbody>
-          </table>
+    <div class="container mt-5">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#tab_class">Classement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="calendar/{{response.league.id}}/{{journee}}/2021">Calendrier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#stats">Stats</a>
+        </li>
+        
+      </ul>
 
-        </div>
+    </div>
+
+
+<div class="tab-content container">
+
+  <div class="tab-pane active" id="tab_class" style="margin-top: 10px;">
+    <div class="row">
+      <div class="col-lg-12">
+        
+        <table class="table-responsive table-hover result-point table-striped" id="classement">
+          <thead class="point-table-head">
+            <tr><th>Classement</th><th>Nom equipe</th><th>Point</th><th>Played</th><th>Win</th><th>Lose</th><th>Draw</th><th>Goalaverage</th><th>Form</th></tr>
+          </thead>
+          <tbody id="bodyTableau" class="text-center">
+            <tr *ngFor="let team of teams">
+              <td>{{team.rank}}</td><td><a [routerLink]="['/team/', team.team.id]">{{team.team.name}}</a></td><td>{{team.points}}</td><td>{{team.all.played}}</td><td>{{team.all.win}}</td><td>{{team.all.lose}}</td><td>{{team.all.draw}}</td><td>{{team.goalsDiff}}</td><td>{{team.form}}</td>
+            </tr>  
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
+
+
+  <div class="tab-pane" id="calendar">
+    
+  </div>
+
+</div>
+    
 
   </section>
 
@@ -40,3 +66,5 @@
 
 </body>
 </html>
+
+

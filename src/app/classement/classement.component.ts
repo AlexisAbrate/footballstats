@@ -18,14 +18,18 @@ export class ClassementComponent implements OnInit {
 
   response: any;
   teams: any;
+  _id: any
+  journee: any
 
   constructor(private standingService : StandingService, private router : Router, private route : ActivatedRoute) { 
-
-    this.standingService.getStandings(61).subscribe(data => {
+    
+    this._id = this.route.snapshot.paramMap.get('id')
+    this.standingService.getStandings(this._id).subscribe(data => {
       this.response = data
       console.log(this.response)
       this.teams = this.response.league.standings[0]
       console.log(this.teams)
+      this.journee=this.response.standings[0][0].all.played
   })
  }
  
