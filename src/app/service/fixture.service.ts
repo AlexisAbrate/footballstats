@@ -17,4 +17,11 @@ export class FixtureService {
      return rep;
    }
 
+   private _url_journee = '/fixtures/saison/champ/journee/'
+   
+   getFixturesByJournee(id: Number, season: Number, journee: Number) {
+     var rep =this._http.get(this._url_journee+season+"/"+id+"/"+journee)
+     return rep
+   }
+
 }
