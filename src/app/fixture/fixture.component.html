@@ -1,6 +1,6 @@
 <div class="card-group">
   <div class="card">
-    <img class="card-img-top" src={{teams.home.logo}} alt="Card image cap">
+    <img class="card-img-top" src={{teams.home.logo}} alt="Card image cap" style="width: 150px; margin-left: 180px; margin-top: 50px;">
     <div class="card-body">
       <h5 class="card-title" style="text-align: center">{{teams.home.name}}</h5>
     </div>
@@ -13,14 +13,23 @@
         </div>
         <br>
         <div class="row mt-3"> 
-            
+            <div class="col-md-8">
+                <div class="row mt-3" *ngFor="let goala of goals_home">
+                    {{goala.player.name}} ({{goala.time.elapsed}}') <img src="../assets/img/ballon.png" style="width: 50px;"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row mt-3" *ngFor="let goala of goals_away">
+                    <img src="../assets/img/ballon.png" style="width: 50px;"/> {{goala.player.name}} ({{goala.time.elapsed}}')
+                </div>
+            </div>
         </div>
 
     </div>
   </div>
 
   <div class="card">
-    <img class="card-img-top" src={{teams.away.logo}}  alt="Card image cap">
+    <img class="card-img-top" src={{teams.away.logo}}  alt="Card image cap" style="width: 150px; margin-left: 180px; margin-top: 50px;">
     <div class="card-body">
       <h5 class="card-title" style="text-align: center">{{teams.away.name}}</h5>
     </div>

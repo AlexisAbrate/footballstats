@@ -23,11 +23,20 @@ export class CalendarComponent implements OnInit {
     this.journee= this.route.snapshot.paramMap.get('journee')
     this.season = this.route.snapshot.paramMap.get('season')
     this.service.getFixturesByJournee(this._id,this.season,this.journee).subscribe(data => {
-      this.fixtures = data      
+      this.fixtures = data 
+    })
+    
+  }
+  
+  changeJournee(journee: Number) {
+
+    this._id = this.route.snapshot.paramMap.get('id')
+    this.journee= journee
+    this.season = this.route.snapshot.paramMap.get('season')
+    this.service.getFixturesByJournee(this._id,this.season,this.journee).subscribe(data => {
+      this.fixtures = data 
     })
 
-
-    
   }
 
 }

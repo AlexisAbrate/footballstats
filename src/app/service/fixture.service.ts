@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { elementAt } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FixtureService {
 
+  
   constructor(private _http : HttpClient) {
 
    }
@@ -17,11 +19,25 @@ export class FixtureService {
      return rep;
    }
 
-   private _url_journee = '/fixtures/saison/champ/journee/'
+   private _url_goalshome = 'http://localhost:8282/fixtures/goalhome/id/'
+
+   getGoalsHome(id: Number) {
+     var rep = this._http.get(this._url_goalshome+id)
+     return rep;
+   }
+   
+   private _url_goalsaway = 'http://localhost:8282/fixtures/goalaway/id/'
+
+   getGoalsAway(id: Number) {
+     var rep = this._http.get(this._url_goalsaway+id)
+     return rep;
+   }
+
+   private _url_journee = 'http://localhost:8282/fixtures/season/champ/journee/'
    
    getFixturesByJournee(id: Number, season: Number, journee: Number) {
      var rep =this._http.get(this._url_journee+season+"/"+id+"/"+journee)
      return rep
    }
 
-}
+  }

@@ -23,17 +23,21 @@ export class ClassementComponent implements OnInit {
 
   constructor(private standingService : StandingService, private router : Router, private route : ActivatedRoute) { 
     
-    this._id = this.route.snapshot.paramMap.get('id')
+    
+ }
+ 
+ ngOnInit(): void {
+
+  this._id = this.route.snapshot.paramMap.get('id')
     this.standingService.getStandings(this._id).subscribe(data => {
       this.response = data
       console.log(this.response)
       this.teams = this.response.league.standings[0]
       console.log(this.teams)
-      this.journee=this.response.standings[0][0].all.played
+      this.journee=this.teams[0].all.played
+      console.log(this.journee)
+      
   })
- }
- 
- ngOnInit(): void {
     
 }
 }

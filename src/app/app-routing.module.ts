@@ -10,14 +10,15 @@ import { FormsModule } from '@angular/forms';
 import { FixtureComponent } from './fixture/fixture.component';
 import { ChoixChampionnatService } from './service/choix-championnat.service';
 import { CalendarComponent } from './calendar/calendar.component';
+import { ChoixChampionnatClassementComponent } from './choix-championnat-classement/choix-championnat-classement.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'classement', component: ClassementComponent},
+  {path: 'classement/:id', component: ClassementComponent},
   {path: 'team/:id', component : TeamComponent},
   {path: 'login', component : LoginComponent},
   {path: 'fixture/:id', component : FixtureComponent},
-  {path: 'choixchamp', component: ChoixChampionnatService},
+  {path: 'choixchamp', component: ChoixChampionnatClassementComponent},
   {path: 'calendar/:id/:journee/:season', component: CalendarComponent}
 ];
 

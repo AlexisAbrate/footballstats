@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AnyTxtRecord } from 'dns';
@@ -17,6 +18,8 @@ export class FixtureComponent implements OnInit {
   league: any
   teams: any
   goals: any
+  goals_away: [] | any
+  goals_home: [] | any
   score: any
   lineup: [] | any
   stats: [] | any
@@ -39,8 +42,15 @@ export class FixtureComponent implements OnInit {
       this.lineup = this.response.lineups
       this.stats = this.response.statistics
       this.players = this.response.players
-
     })  
+
+    this.service.getGoalsAway(this._id).subscribe(data => {
+      this.goals_away = data
+    })
+    
+    this.service.getGoalsHome(this._id).subscribe(data => {
+      this.goals_home = data
+    })
 
   }
    
