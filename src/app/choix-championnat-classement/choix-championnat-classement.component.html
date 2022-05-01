@@ -1,39 +1,39 @@
-<div>
+<div class="container">
 
-    <div class="container">
-        <img src="{{ligue1.league.logo}}">
-        <a [routerLink]="['/classement/', ligue1.league.id]">Go to</a>
+    <div class="row" style="margin-top: 100px;">
+        <div class="col-md-3">
+            <div class="container">
+                <a [routerLink]="['/classement/', ligue1.league.id]"><img src="{{ligue1.league.logo}}"></a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <a [routerLink]="['/classement/', bundes.league.id]"><img src="{{bundes.league.logo}}"></a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <a  [routerLink]="['/classement/', liga.league.id]"><img src="{{liga.league.logo}}"></a>
+            </div>
+        </div>
     </div>
-    
-    <div class="container">
-        <img src="{{bundes.league.logo}}">
-        <a [routerLink]="['/classement/', bundes.league.id]">Go to</a>
-    </div>
-    
-    
-    <div class="container">
-        <img src="{{liga.league.logo}}">
-        <a  [routerLink]="['/classement/', liga.league.id]">Go to</a>
-    </div>
-    
-    <div class="container">
-        <img src="{{serie.league.logo}}" >
-        <a [routerLink]="['/classement/', serie.league.id]">Go to</a>
-    </div>
-    
-    <div class="container">
-        <img src="{{premier.league.logo}}">
-        <a [routerLink]="['/classement/', premier.league.id]">Go to</a>
-    </div>
+   
+
+    <div class="row">
+        <div class="col-md-3">
+            <a [routerLink]="['/classement/', serie.league.id]"><img src="{{serie.league.logo}}" ></a>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <a [routerLink]="['/classement/', premier.league.id]"><img src="{{premier.league.logo}}"></a>
+            </div>
+        </div>
+    </div>  
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    </div>
+</div>
     

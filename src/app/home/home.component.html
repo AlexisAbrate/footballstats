@@ -1,1 +1,39 @@
-<p>home works welcome!</p>
+<p>{{todayDate}}</p>
+   
+    <select>
+      <option value="{{todayDate}}" selected>Aujourd'hui</option>
+      <option value="yesterday">Saab</option>
+      <option value="tomorrow">Mercedes</option>
+    </select>
+ 
+
+<div>
+    <table>
+        <tbody>
+            <tr *ngFor="let fix of fixtures">
+                <td type="datetime" data-date-format="DD MM YYYY">
+                    <!-- {{ date_Value | date [ : format [ : timeZone [ : locale ] ] ] }} -->
+                    {{fix.fixture.date | date:'dd-MM-yyyy'}}
+                </td>
+                <td>
+                    <a [routerLink]="['/team/', fix.teams.home.id]">{{fix.teams.home.name}}</a>
+                </td>
+                <td>
+                   <img src="{{fix.teams.home.logo}}" style="width: 40px;"> 
+                </td>
+                <td>
+                    <a [routerLink]="['/fixture/', fix.fixture.id]">{{fix.score.fulltime.home}} : {{fix.score.fulltime.away}}</a>
+                </td>
+                <td>
+                    <img src="{{fix.teams.away.logo}}" style="width: 40px;">
+                </td>
+                <td>
+                    <a [routerLink]="['/team/', fix.teams.away.id]">{{fix.teams.away.name}}</a>
+                </td>
+                <td>
+                    {{fix.fixture.date | date:'HH:mm'}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
