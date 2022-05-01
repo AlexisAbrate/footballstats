@@ -14,6 +14,7 @@ import { FixtureComponent } from './fixture/fixture.component';
 import { PlayersComponent } from './players/players.component';
 import { ChoixChampionnatClassementComponent } from './choix-championnat-classement/choix-championnat-classement.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

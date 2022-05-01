@@ -40,4 +40,11 @@ export class FixtureService {
      return rep
    }
 
+   private _url_date = 'http://localhost:8282/fixtuxes/today/'
+   
+   getFixturesByDate(date: String | null) {
+     var rep = this._http.get(this._url_date+date)
+     return rep
+   }
+
   }

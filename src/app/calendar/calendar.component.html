@@ -15,7 +15,8 @@
         <tbody>
             <tr *ngFor="let fix of fixtures">
                 <td type="datetime" data-date-format="DD MM YYYY">
-                    {{fix.fixture.date}}
+                    <!-- {{ date_Value | date [ : format [ : timeZone [ : locale ] ] ] }} -->
+                    {{fix.fixture.date | date:'dd-MM-yyyy'}}
                 </td>
                 <td>
                     <a [routerLink]="['/team/', fix.teams.home.id]">{{fix.teams.home.name}}</a>
