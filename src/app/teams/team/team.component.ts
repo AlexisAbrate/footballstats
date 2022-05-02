@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TeamsService } from 'src/app/service/teams.service';
 import { ActivatedRoute } from '@angular/router';
+import { ChartDataset, ChartOptions ,ChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 
 @Component({
@@ -17,6 +19,48 @@ export class TeamComponent implements OnInit {
   _id : any
   fixture: [] | any
   players: [] | any
+  stats: [] | any
+  data: any
+  goals: [] | any 
+  minutes: [] | any 
+
+  lineup: [] | any
+
+  monoChartTypes : ChartType[] = [  'bar' , 'pie' , 'doughnut' ,'polarArea' ];
+  multiChartTypes : ChartType[] = [ 'line' , 'bar'  ];
+
+  //monoChartType : ChartType = 'bar'
+
+   //valeurs affichées dans le premier graphique
+
+  //monoChartData: ChartDataset[] = []
+  
+  
+  //monoChartLabels: string[] = ['Total but', "But a l'exterieur", 'But à domicile'];
+
+  goalChartType : ChartType = 'bar'
+   //valeurs affichées dans le premier graphique
+
+  goalChartData: ChartDataset[] = []  
+  
+  goalChartLabels: string[] = ['Total but', "But a l'exterieur", 'But à domicile'];
+
+
+
+  minutesChartType : ChartType = 'pie'
+
+  minutesChartData: ChartDataset[] = []  
+  
+  minutesChartLabels: string[] = ['Total but', "But a l'exterieur", 'But à domicile'];
+
+
+  /*
+  multiChartType: ChartType = 'line';
+
+  multiChartData: ChartDataset[] = []
+
+  multiChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+*/
 
   constructor(private service : TeamsService, private route : ActivatedRoute) {
 
@@ -44,12 +88,33 @@ export class TeamComponent implements OnInit {
         })
 
 
-     
 
 
-    //})
 
+
+
+        
+        this.service.getStats(this._id,2021).subscribe(data => {
+          this.stats = data
+          this.goals = [this.stats.goals.for.total.total,this.stats.goals.for.total.away,this.stats.goals.for.total.home]
+          this.goalChartData = [
+            { data: this.goals, label: 'Buts' },
+          ];                    
+        })
+
+
+        /*
+        this.service.getMinutes(this._id,2021).subscribe(data => {
+          this.minutes = data
+          this.minutesChartData = [
+            { data: this.minutes, label: 'Buts' },
+          ];          
+        })*/
+       
+        
 
   }
+
+  
 
 }

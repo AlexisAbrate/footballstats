@@ -88,6 +88,88 @@
  
 </div>
 
+
+
+<div class="container" id="players">
+  <div class="cadre-table-scroll">
+    <table class="table-scroll">
+      <thead class="bg-light">
+        <tr>
+          <th>Prenom</th>
+          <th>Age</th>
+          <th>Taille</th>
+          <th>Poids</th>
+          <th>Nationalité</th>
+          <th>Photo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let play of players">
+          <td>
+            <div class="d-flex align-items-center">
+              <a [routerLink]="['/players/', play.player.id]">{{play.player.firstname}} {{play.player.lastname}}</a>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <p class="fw-bold mb-1">{{play.player.age}}</p>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <p class="fw-bold mb-1">{{play.player.height}}</p>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <p class="fw-bold mb-1">{{play.player.weight}}</p>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <p class="fw-bold mb-1">{{play.player.nationality}}</p>
+            </div>
+          </td>
+          <td>
+            <img
+                  src={{play.player.photo}}
+                  alt=""
+                  style="width: 45px; height: 45px"
+                  class="rounded-circle"
+                  />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+ 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container" id="stats">
 
 <div class="row">
@@ -107,7 +189,7 @@
         role="tab"
         aria-controls="v-pills-home"
         aria-selected="true"
-        >Home</a
+        >Buts</a
       >
       <a
         class="nav-link"
@@ -117,7 +199,8 @@
         role="tab"
         aria-controls="v-pills-profile"
         aria-selected="false"
-        >Profile</a
+        onclick="changeClass()"
+        >Passes</a
       >
       <a
         class="nav-link"
@@ -142,11 +225,61 @@
         role="tabpanel"
         aria-labelledby="v-pills-home-tab"
       >
-        Home content
+      <div class="row">
+        <div class="col-sm-6">
+            <!--
+            <label>chartType (pour proportions):</label><select ng-model="monoChartType">
+                <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
+            </select><br/>
+            -->
+            <div class="chart-wrapper">
+                <canvas baseChart
+                    [datasets]="goalChartData" 
+                    [labels]="goalChartLabels" 
+                    [type]="goalChartType" >
+                </canvas>
+            </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+            <!--
+            <label>chartType (pour proportions):</label><select ng-model="monoChartType">
+                <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
+            </select><br/>
+            -->
+            <div class="chart-wrapper">
+                <canvas baseChart
+                    [datasets]="goalChartData" 
+                    [labels]="goalChartLabels" 
+                    [type]="goalChartType" >
+                </canvas>
+            </div>
+        </div>
+      </div>
+ <!--
+      <div class="row">
+        <div class="col-sm-6">
+           
+            <label>chartType (pour proportions):</label><select ng-model="monoChartType">
+                <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
+            </select><br/>
+            
+            <div class="chart-wrapper">
+                <canvas baseChart
+                    [datasets]="minutesChartData" 
+                    [labels]="minutesChartLabels" 
+                    [type]="minutesChartType" >
+                </canvas>
+            </div>
+        </div>
+      </div>
+-->
       </div>
       <div
         class="tab-pane fade"
-        id="#v-pills-profile"
+        id="v-pills-profile"
         role="tabpanel"
         aria-labelledby="v-pills-profile-tab"
       >

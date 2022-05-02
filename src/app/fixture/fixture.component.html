@@ -15,12 +15,25 @@
         <div class="row mt-3"> 
             <div class="col-md-8">
                 <div class="row mt-3" *ngFor="let goala of goals_home">
-                    {{goala.player.name}} ({{goala.time.elapsed}}') <img src="../assets/img/ballon.png" style="width: 50px;"/>
+                <div>
+                    {{goala.player.name}} ({{goala.time.elapsed}}') <img src="../assets/img/ballon.png" style="width: 20px;"/>
+                </div>
+                <br>
+                <div>
+                    {{goala.assist.name}}<img src="../assets/img/passde.png" style="width: 20px;"/>
+                </div>
+                    
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="row mt-3" *ngFor="let goala of goals_away">
-                    <img src="../assets/img/ballon.png" style="width: 50px;"/> {{goala.player.name}} ({{goala.time.elapsed}}')
+                    <div>
+                        {{goala.player.name}} ({{goala.time.elapsed}}') <img src="../assets/img/ballon.png" style="width: 20px;"/>
+                    </div>
+                    <br>
+                    <div>
+                        {{goala.assist.name}}<img src="../assets/img/passde.png" style="width: 20px;"/>
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,6 +15,7 @@ import { PlayersComponent } from './players/players.component';
 import { ChoixChampionnatClassementComponent } from './choix-championnat-classement/choix-championnat-classement.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { DatePipe } from '@angular/common';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DatePipe } from '@angular/common';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
