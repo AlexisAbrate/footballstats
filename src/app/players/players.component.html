@@ -1,1 +1,136 @@
-<p>players works!</p>
+<div class="row">
+    <div class="col-sm-4">
+        <img src={{player.statistics[0].team.logo}} class="img-fluid" />
+    </div>
+    <div class="col-sm-4">
+        <div class="row">
+            <img src={{player.player.photo}} class="img-fluid" style="width: 200px"/>
+        </div>
+        <div class="row" style="text-align: center ; font-weight: bold;">
+            {{player.player.firstname}} {{player.player.lastname}}
+        </div>
+        <div class="row" style="text-align: center ; font-weight: bold;">
+            {{player.statistics[0].games.position}}
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="col-sm-8">
+            <div class="row">
+                Pays:             {{player.player.nationality}}  
+            </div>
+            <div class="row">
+                Age:               {{player.player.age}} 
+            </div>
+            <div class="row">
+                Date de naissance:            {{player.player.birth.date}} 
+            </div>
+            <div class="row">
+                Lieu de naissance:             {{player.player.birth.place}} 
+            </div>
+            <div class="row">
+                Taille:               {{player.player.height}} 
+            </div>
+            <div class="row">
+                Poids:             {{player.player.weight}} 
+            </div>
+        </div>
+    </div>
+</div>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<div class="row">
+    <div class="col-md-6">
+        <div class="container">
+            <div class="row" style="font-weight: bold;">
+                Tous les matches
+            </div>
+            <div class="row">
+                Minutes jouées : {{player.statistics[0].games.minutes}}
+            </div>
+            <div class="row">
+                Apparition : {{player.statistics[0].games.appearences}}
+            </div>
+        </div>
+        <br>
+        <div class="container" >
+            <div class="row" style="font-weight: bold;">
+                Attaque
+            </div>
+            <div class="row">
+                Buts : {{player.statistics[0].goals.total}}
+            </div>
+            <div class="row">
+                Tirs: {{player.statistics[0].shots.total}}
+             </div>
+             <div class="row">
+                Tirs Cadres : {{player.statistics[0].shots.on}}
+             </div>
+             <div class="row">
+                Passes decisives : {{player.statistics[0].goals.assists}}
+             </div>    
+        </div>
+        <br>
+        <div class="container">
+            <div class="row" style="font-weight: bold;">
+                Dribbles
+            </div>
+            <div class="row">
+                Tentés : {{player.statistics[0].dribbles.attempts}}
+            </div>
+            <div class="row">
+                Reussi : {{player.statistics[0].dribbles.success}}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="container">
+            <div class="row" style="font-weight: bold;">
+                Discipline
+            </div>
+            <div class="row">
+                Fautes commises : {{player.statistics[0].fouls.committed}}
+            </div>
+            <div class="row">
+                Fautes subies : {{player.statistics[0].fouls.drawn}}
+            </div>
+            <div class="row">
+                Cartons jaunes: {{player.statistics[0].cards.yellow}}
+             </div>
+             <div class="row">
+                Cartons rouges : {{player.statistics[0].cards.red}}
+             </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row" style="font-weight: bold;">
+                Defense
+            </div>
+            <div class="row">
+                Tacles : {{player.statistics[0].tackles.total}}
+            </div>
+            <div class="row">
+                Tirs bloqués : {{player.statistics[0].tackles.blocks}}
+            </div>
+            <div class="row">
+                Interceptions : {{player.statistics[0].tackles.interceptions}}
+             </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row" style="font-weight: bold;">
+                Remplacement
+            </div>
+            <div class="row">
+                Entrant : {{player.statistics[0].substitutes.in}}
+            </div>
+            <div class="row">
+                Sortant : {{player.statistics[0].substitutes.out}}
+            </div>
+            <div class="row">
+                Depart sur le banc : {{player.statistics[0].substitutes.bench}}
+             </div>
+        </div>
+    </div>
+</div>
+

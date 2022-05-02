@@ -31,11 +31,26 @@ export class TeamsService {
     
   }
 
-  private _url_players = 'http://localhost8282/teams/players/teamid/'
+  private _url_players = 'http://localhost:8282/teams/players/teamid/'
 
   getPlayers(id: Number) {
     var rep = this._http.get(this._url_players+id)
     return rep
   }
+
+  private _url_stats = 'http://localhost:8282/team/stats/'
+
+  getStats(id: Number, season: Number) {
+    var rep = this._http.get(this._url_stats+season+"/"+id)
+    return rep
+  }
+
+  private _url_minutes = 'http://localhost:8282/team/stats/minutes/'
+
+  getMinutes(id: Number, season: Number) {
+    var rep = this._http.get(this._url_stats+season+"/"+id)
+    return rep
+  }
+  
 
 }
