@@ -27,7 +27,7 @@
       </ul>
 
     </div>
-
+ 
 
 <div class="tab-content container">
 
@@ -56,6 +56,64 @@
 
 </div>
     
+</section>
+
+<section id="statligue">
+<div class="row">
+
+  <div class="col-4">
+    <div class="container">
+      <div class="col-md-4">
+        <table class="ws-list grid list-type-2">
+          <thead>
+            <tr><th class="stat-title">Buts Pour</th></tr>
+          </thead>
+          <tbody id="bodyTableau" class="text-center">
+            <tr *ngFor="let teamg of goalsfor">
+              <td class="overflow-text">
+                <a [routerLink]="['/team/', teamg.team.id]">{{teamg.team.name}}</a>
+              </td>
+              <td>
+                {{teamg.goals.for.total.total}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+
+    <div class="container">
+      <div class="col-md-4">
+        <table class="ws-list grid list-type-2">
+          <thead>
+            <tr><th class="stat-title">Buts Contre</th></tr>
+          </thead>
+          <tbody id="bodyTableau" class="text-center">
+            <tr *ngFor="let teama of goalsag">
+              <td class="overflow-text">
+                <a [routerLink]="['/team/', teama.team.id]">{{teama.team.name}}</a>
+              </td>
+              <td>
+                {{teama.goals.for.total.total}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  
+  
+  
+
+</div>
+
+ 
+
 
   </section>
 

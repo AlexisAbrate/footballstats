@@ -146,160 +146,66 @@
  
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="container" id="stats">
-
-<div class="row">
-  <div class="col-3">
-    <!-- Tab navs -->
-    <div
-      class="nav flex-column nav-pills text-center"
-      id="v-pills-tab"
-      role="tablist"
-      aria-orientation="vertical"
-    >
-      <a
-        class="nav-link active"
-        id="v-pills-home-tab"
-        data-mdb-toggle="pill"
-        href="#v-pills-home"
-        role="tab"
-        aria-controls="v-pills-home"
-        aria-selected="true"
-        >Buts</a
-      >
-      <a
-        class="nav-link"
-        id="v-pills-profile-tab"
-        data-mdb-toggle="pill"
-        href="#v-pills-profile"
-        role="tab"
-        aria-controls="v-pills-profile"
-        aria-selected="false"
-        onclick="changeClass()"
-        >Passes</a
-      >
-      <a
-        class="nav-link"
-        id="v-pills-messages-tab"
-        data-mdb-toggle="pill"
-        href="#v-pills-messages"
-        role="tab"
-        aria-controls="v-pills-messages"
-        aria-selected="false"
-        >Messages</a
-      >
-    </div>
-    <!-- Tab navs -->
-  </div>
-
-  <div class="col-9">
-    <!-- Tab content -->
-    <div class="tab-content" id="v-pills-tabContent">
-      <div
-        class="tab-pane fade show active"
-        id="v-pills-home"
-        role="tabpanel"
-        aria-labelledby="v-pills-home-tab"
-      >
-      <div class="row">
-        <div class="col-sm-6">
-            <!--
-            <label>chartType (pour proportions):</label><select ng-model="monoChartType">
-                <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
-            </select><br/>
-            -->
-            <div class="chart-wrapper">
-                <canvas baseChart
-                    [datasets]="goalChartData" 
-                    [labels]="goalChartLabels" 
-                    [type]="goalChartType" >
-                </canvas>
+  <div class="col-12">
+    <div id="menu-tab">
+      <div id="page-wrap">
+        <div class="tabs">
+          <div class="tab"><input id="tab-1" checked="checked" name="tab-group-1" type="radio" />
+            <label
+            for="tab-1">Buts</label>
+            <div class="content">
+              <div class="row">
+                <div class="col-sm-6">
+                    <!--
+                    <label>chartType (pour proportions):</label><select ng-model="monoChartType">
+                        <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
+                    </select><br/>
+                    -->
+                    <div class="chart-wrapper">
+                        <canvas baseChart
+                            [datasets]="goalChartData" 
+                            [labels]="goalChartLabels" 
+                            [type]="goalChartType" >
+                        </canvas>
+                    </div>
+                </div>
+              </div>
             </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-            <!--
-            <label>chartType (pour proportions):</label><select ng-model="monoChartType">
-                <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
-            </select><br/>
-            -->
-            <div class="chart-wrapper">
-                <canvas baseChart
-                    [datasets]="goalChartData" 
-                    [labels]="goalChartLabels" 
-                    [type]="goalChartType" >
-                </canvas>
-            </div>
-        </div>
-      </div>
- <!--
-      <div class="row">
-        <div class="col-sm-6">
-           
-            <label>chartType (pour proportions):</label><select ng-model="monoChartType">
-                <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
-            </select><br/>
             
-            <div class="chart-wrapper">
-                <canvas baseChart
-                    [datasets]="minutesChartData" 
-                    [labels]="minutesChartLabels" 
-                    [type]="minutesChartType" >
-                </canvas>
+          </div>
+  
+          <div class="tab"><input id="tab-2" name="tab-group-1" type="radio" />
+            <label
+            for="tab-2">Passes</label>
+
+            <div class="content">
+              <div class="row">
+                <div class="col-sm-6">
+                    <!--
+                    <label>chartType (pour proportions):</label><select ng-model="monoChartType">
+                        <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
+                    </select><br/>
+                    -->
+                    <div class="chart-wrapper">
+                        <canvas baseChart
+                            [datasets]="goalChartData" 
+                            [labels]="goalChartLabels" 
+                            [type]="goalChartType" >
+                        </canvas>
+                    </div>
+                </div>
+              </div>
             </div>
+            
+          </div>
+          
         </div>
+  
       </div>
--->
-      </div>
-      <div
-        class="tab-pane fade"
-        id="v-pills-profile"
-        role="tabpanel"
-        aria-labelledby="v-pills-profile-tab"
-      >
-        Profile content
-      </div>
-      <div
-        class="tab-pane fade"
-        id="v-pills-messages"
-        role="tabpanel"
-        aria-labelledby="v-pills-messages-tab"
-      >
-        Messages content
-      </div>
+      
     </div>
-    <!-- Tab content -->
+
   </div>
+
 </div>
-</div>
-
-
-
-
-

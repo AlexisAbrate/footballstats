@@ -20,6 +20,8 @@ export class ClassementComponent implements OnInit {
   teams: any;
   _id: any
   journee: any
+  goalsfor: [] | any 
+  goalsag: [] | any 
 
   constructor(private standingService : StandingService, private router : Router, private route : ActivatedRoute) { 
     
@@ -38,6 +40,18 @@ export class ClassementComponent implements OnInit {
       console.log(this.journee)
       
   })
+
+ this.standingService.getGoalsFor(this._id).subscribe(data => {
+  this.goalsfor = data
+  console.log(this.goalsfor)
+ })
+
+ this.standingService.getGoalsAg(this._id).subscribe(data => {
+  this.goalsag = data
+  console.log(this.goalsag)
+ })
+
+
     
 }
 }
