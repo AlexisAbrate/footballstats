@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StandingService } from '../service/standing.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-classement',
@@ -20,7 +21,9 @@ export class ClassementComponent implements OnInit {
   assists : [] | any 
   bestnotes: [] | any 
   dataChart: [] | any 
-
+  dataSetFor: [] | any
+  dataSetAg: [] | any
+  chart : [] | any
   constructor(private standingService : StandingService, private router : Router, private route : ActivatedRoute) { 
     
     
@@ -41,6 +44,66 @@ export class ClassementComponent implements OnInit {
 
  this.standingService.getGoalsFor(this._id).subscribe(data => {
   this.goalsfor = data
+
+  var dataButs = []
+  var dataJson = {"team": "", "butp":0, "butc":0};
+  for(let element of this.goalsfor){
+    dataJson.team = element.team.name
+    dataJson.butp = Number(element.goals.for.total.total)
+    dataJson.butc = Number(element.goals.against.total.total)
+    dataButs.push({...dataJson})
+    console.log("element")
+    console.log(dataJson)
+  }
+
+  var valuePour = []
+  var valueContre = []
+  valuePour = dataButs.map(({team, butp}) => [team, butp])
+  valueContre = dataButs.map(({team, butc}) => [team,butc])
+  
+  this.chart = new Chart('canvas', {
+    type: 'bar',
+    data: {
+      datasets: [
+        {
+          label:"But pour",
+          data: valuePour,
+          borderWidth: 1,
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        },
+        {
+          label:"But contre",
+          data: valueContre,
+          borderWidth:1,
+          backgroundColor: 'rgba(0, 0, 0, 0.1)'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "But pour et contre durant la saison par equipe"
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Equipe"
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: "Nombre de buts"
+          }
+        }
+      }
+
+    }
+  })
   console.log(this.goalsfor)
  })
 
@@ -65,6 +128,8 @@ export class ClassementComponent implements OnInit {
 
  this.standingService.getDataChart(this._id).subscribe(data => {
    this.dataChart = data
+   //this.dataSetFor = this.dataChart[0]
+   //this.dataSetAg = this.dataChart[1]
    console.log(data)
  })
     
