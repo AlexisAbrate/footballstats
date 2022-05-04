@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from "@angular/common/http";
-import { Observable } from 'rxjs';
-
 import { StandingService } from '../service/standing.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { response } from 'express';
-import { Team } from '../common/data/team';
-import { League } from '../common/data/league';
 
 @Component({
   selector: 'app-classement',
@@ -25,6 +19,7 @@ export class ClassementComponent implements OnInit {
   scorer : [] | any 
   assists : [] | any 
   bestnotes: [] | any 
+  dataChart: [] | any 
 
   constructor(private standingService : StandingService, private router : Router, private route : ActivatedRoute) { 
     
@@ -54,6 +49,8 @@ export class ClassementComponent implements OnInit {
   console.log(this.goalsag)
  })
 
+
+
  this.standingService.getTopScorer(this._id).subscribe(data => {
    this.scorer = data
  })
@@ -65,6 +62,13 @@ export class ClassementComponent implements OnInit {
  this.standingService.getBestNote(this._id).subscribe(data => {
    this.bestnotes = data
  })
+
+ this.standingService.getDataChart(this._id).subscribe(data => {
+   this.dataChart = data
+   console.log(data)
+ })
     
 }
 }
+
+

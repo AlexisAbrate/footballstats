@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs'
-import { map } from 'rxjs';
-import { NullVisitor } from '@angular/compiler/src/render3/r3_ast';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +9,7 @@ import { NullVisitor } from '@angular/compiler/src/render3/r3_ast';
 
 export class StandingService {
 
+  chartsData: [] | any
   
   constructor(private _http : HttpClient) { 
 
@@ -63,20 +62,11 @@ getBestNote(id: Number) {
   return rep
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+private _url_charts_goals = 'http://localhost:8282/classement/stats/goalchart/'
+getDataChart(id: Number) {
+ var rep = this._http.get(this._url_charts_goals+"2021/"+id)
+ return rep  
+}
 
 
 }

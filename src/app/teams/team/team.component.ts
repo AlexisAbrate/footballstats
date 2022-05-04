@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TeamsService } from 'src/app/service/teams.service';
 import { ActivatedRoute } from '@angular/router';
-import { ChartDataset, ChartOptions ,ChartType } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
+
 
 
 @Component({
@@ -26,8 +25,8 @@ export class TeamComponent implements OnInit {
 
   lineup: [] | any
 
-  monoChartTypes : ChartType[] = [  'bar' , 'pie' , 'doughnut' ,'polarArea' ];
-  multiChartTypes : ChartType[] = [ 'line' , 'bar'  ];
+  //monoChartTypes : ChartType[] = [  'bar' , 'pie' , 'doughnut' ,'polarArea' ];
+  //multiChartTypes : ChartType[] = [ 'line' , 'bar'  ];
 
   //monoChartType : ChartType = 'bar'
 
@@ -38,20 +37,20 @@ export class TeamComponent implements OnInit {
   
   //monoChartLabels: string[] = ['Total but', "But a l'exterieur", 'But à domicile'];
 
-  goalChartType : ChartType = 'bar'
+  //oalChartType : ChartType = 'bar'
    //valeurs affichées dans le premier graphique
 
-  goalChartData: ChartDataset[] = []  
+  //goalChartData: ChartDataset[] = []  
   
-  goalChartLabels: string[] = ['Total but', "But a l'exterieur", 'But à domicile'];
+  //goalChartLabels: string[] = ['Total but', "But a l'exterieur", 'But à domicile'];
 
 
 
-  minutesChartType : ChartType = 'pie'
+  //minutesChartType : ChartType = 'pie'
 
-  minutesChartData: ChartDataset[] = []  
+  //minutesChartData: ChartDataset[] = []  
   
-  minutesChartLabels: string[] = ['Total but', "But a l'exterieur", 'But à domicile'];
+  //minutesChartLabels: string[] = ['Total but', "But a l'exterieur", 'But à domicile'];
 
 
   /*
@@ -91,9 +90,7 @@ export class TeamComponent implements OnInit {
         this.service.getStats(this._id,2021).subscribe(data => {
           this.stats = data
           this.goals = [this.stats.goals.for.total.total,this.stats.goals.for.total.away,this.stats.goals.for.total.home]
-          this.goalChartData = [
-            { data: this.goals, label: 'Buts' },
-          ];                    
+                        
         })
 
 

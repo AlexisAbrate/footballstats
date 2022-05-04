@@ -145,6 +145,7 @@
   </div>
  
 </div>
+<!--
 
 <div class="container" id="stats">
   <div class="col-12">
@@ -157,55 +158,56 @@
             <div class="content">
               <div class="row">
                 <div class="col-sm-6">
-                    <!--
+               
                     <label>chartType (pour proportions):</label><select ng-model="monoChartType">
                         <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
                     </select><br/>
-                    -->
+                 
                     <div class="chart-wrapper">
-                        <canvas baseChart
-                            [datasets]="goalChartData" 
-                            [labels]="goalChartLabels" 
-                            [type]="goalChartType" >
-                        </canvas>
-                    </div>
-                </div>
+                      <canvas baseChart
+                          [datasets]="goalChartData" 
+                          [labels]="goalChartLabels" 
+                          [type]="goalChartType" >
+                      </canvas>
+                  </div>
               </div>
             </div>
-            
-          </div>
-  
-          <div class="tab"><input id="tab-2" name="tab-group-1" type="radio" />
-            <label
-            for="tab-2">Passes</label>
-
-            <div class="content">
-              <div class="row">
-                <div class="col-sm-6">
-                    <!--
-                    <label>chartType (pour proportions):</label><select ng-model="monoChartType">
-                        <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
-                    </select><br/>
-                    -->
-                    <div class="chart-wrapper">
-                        <canvas baseChart
-                            [datasets]="goalChartData" 
-                            [labels]="goalChartLabels" 
-                            [type]="goalChartType" >
-                        </canvas>
-                    </div>
-                </div>
-              </div>
-            </div>
-            
           </div>
           
         </div>
-  
-      </div>
-      
-    </div>
 
+        <div class="tab"><input id="tab-2" name="tab-group-1" type="radio" />
+          <label
+          for="tab-2">Passes</label>
+
+          <div class="content">
+            <div class="row">
+              <div class="col-sm-6">
+            
+                  <label>chartType (pour proportions):</label><select ng-model="monoChartType">
+                      <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
+                  </select><br/>
+                
+                  <div class="chart-wrapper">
+                      <canvas baseChart
+                          [datasets]="goalChartData" 
+                          [labels]="goalChartLabels" 
+                          [type]="goalChartType" >
+                      </canvas>
+                  </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+
+    </div>
+    
   </div>
 
 </div>
+
+</div>
+-->
