@@ -45,12 +45,7 @@ export class TeamsService {
     return rep
   }
 
-  private _url_minutes = 'http://localhost:8282/team/stats/minutes/'
-
-  getMinutes(id: Number, season: Number) {
-    var rep = this._http.get(this._url_stats+season+"/"+id)
-    return rep
-  }
+  
   
 
 }

@@ -27,7 +27,7 @@
       </ul>
 
     </div>
-
+ 
 
 <div class="tab-content container">
 
@@ -56,8 +56,157 @@
 
 </div>
     
+</section>
 
-  </section>
+<section id="statligue">
+<div class="row">
+
+  <div class="col-4">
+    <div class="container">
+      <div class="col-md-4">
+        <table class="ws-list grid list-type-2">
+          <thead>
+            <tr><th class="stat-title">Buts Pour</th></tr>
+          </thead>
+          <tbody id="bodyTableau" class="text-center">
+            <tr *ngFor="let teamg of goalsfor">
+              <td class="overflow-text">
+                <a [routerLink]="['/team/', teamg.team.id]">{{teamg.team.name}}</a>
+              </td>
+              <td>
+                {{teamg.goals.for.total.total}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+
+    <div class="container">
+      <div class="col-md-4">
+        <table class="ws-list grid list-type-2">
+          <thead>
+            <tr><th class="stat-title">Buts Contre</th></tr>
+          </thead>
+          <tbody id="bodyTableau" class="text-center">
+            <tr *ngFor="let teama of goalsag">
+              <td class="overflow-text">
+                <a [routerLink]="['/team/', teama.team.id]">{{teama.team.name}}</a>
+              </td>
+              <td>
+                {{teama.goals.against.total.total}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<br>
+<br> 
+<div class="row">
+  <span style="text-align: center;">Meilleur joueur de {{response.league.name}}</span>
+</div>
+
+
+<section id="scorer">
+  <div class="row">
+    <div class="container">
+      <br>
+      <span>Buteur</span>
+      <table class="ws-list grid list-type-2">
+        <thead>
+          <tr><th class="stat-title">Joueur</th><th class="stat-title">Equipe</th><th class="stat-title">Nombre de buts</th></tr>
+        </thead>
+        <tbody id="bodyTableauScorer" class="text-center">
+          <tr *ngFor="let score of scorer">
+            <td>
+              <img src="{{score.player.photo}}" class="rounded-circle">
+              <a [routerLink]="['/players/', score.player.id]">{{score.player.name}}</a>
+            </td>
+            <td>
+              <a [routerLink]="['/team/', score.statistics[0].team.id]"><img src="{{score.statistics[0].team.logo}}"></a>
+            </td>
+            <td>
+              {{score.statistics[0].goals.total}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="assists">
+    <div class="row">
+      <div class="container">
+        <br>
+        <span>Passeur</span>
+        <table class="ws-list grid list-type-2">
+          <thead>
+            <tr><th class="stat-title">Joueur</th><th class="stat-title">Equipe</th><th class="stat-title">Nombre de Passes Decisives</th></tr>
+          </thead>
+          <tbody id="bodyTableauAssist" class="text-center">
+            <tr *ngFor="let assist of assists">
+              <td>
+                <img src="{{assist.player.photo}}" class="rounded-circle">
+                <a [routerLink]="['/players/', assist.player.id]">{{assist.player.name}}</a>
+              </td>
+              <td>
+                <a name="top" [routerLink]="['/team/', assist.statistics[0].team.id]"><img src="{{assist.statistics[0].team.logo}}"></a>
+              </td>
+              <td>
+                {{assist.statistics[0].goals.assists}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</section> 
+
+
+<section id="bestplayer">
+  <div class="row">
+    <div class="container">
+      <br>
+      <span>Mieux notés</span>
+      <table class="ws-list grid list-type-2">
+        <thead>
+          <tr><th class="stat-title">Joueur</th><th class="stat-title">Equipe</th><th>Match joués</th><th class="stat-title">Note moyenne / match</th></tr>
+        </thead>
+        <tbody id="bodyTableauNotes" class="text-center">
+          <tr *ngFor="let player of bestnotes">
+            <td>
+              <img src="{{player.player.photo}}" class="rounded-circle">
+              <a [routerLink]="['/players/', player.player.id]">{{player.player.name}}</a>
+            </td>
+            <td>
+              <a name="top" [routerLink]="['/team/', player.statistics[0].team.id]"><img src="{{player.statistics[0].team.logo}}"></a>
+            </td>
+            <td>
+              {{player.statistics[0].games.appearences}}
+            </td>
+            <td>
+              {{player.statistics[0].games.rating}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section> 
+
+
+
+  
 
   <link rel="stylesheet" type="css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>

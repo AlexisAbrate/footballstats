@@ -87,12 +87,6 @@ export class TeamComponent implements OnInit {
           this.players = data
         })
 
-
-
-
-
-
-
         
         this.service.getStats(this._id,2021).subscribe(data => {
           this.stats = data
