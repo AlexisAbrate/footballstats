@@ -24,6 +24,9 @@ export class ClassementComponent implements OnInit {
   dataSetFor: [] | any
   dataSetAg: [] | any
   chart : [] | any
+ 
+
+  
   constructor(private standingService : StandingService, private router : Router, private route : ActivatedRoute) { 
     
     
@@ -46,24 +49,29 @@ export class ClassementComponent implements OnInit {
   this.goalsfor = data
 
   var dataButs = []
+  var labelChart = []
   var dataJson = {"team": "", "butp":0, "butc":0};
   for(let element of this.goalsfor){
     dataJson.team = element.team.name
     dataJson.butp = Number(element.goals.for.total.total)
     dataJson.butc = Number(element.goals.against.total.total)
     dataButs.push({...dataJson})
+    labelChart.push(dataJson.team)
     console.log("element")
     console.log(dataJson)
   }
 
   var valuePour = []
   var valueContre = []
-  valuePour = dataButs.map(({team, butp}) => [team, butp])
-  valueContre = dataButs.map(({team, butc}) => [team,butc])
+  valuePour = dataButs.map(({butp}) => [butp])
+  valueContre = dataButs.map(({butc}) => [butc])
+  console.log(valuePour)
+  console.log(valueContre)
   
-  this.chart = new Chart('canvas', {
+  this.chart = new Chart('chartbut', {
     type: 'bar',
     data: {
+      labels : labelChart,
       datasets: [
         {
           label:"But pour",
