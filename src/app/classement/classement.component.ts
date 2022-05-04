@@ -22,6 +22,9 @@ export class ClassementComponent implements OnInit {
   journee: any
   goalsfor: [] | any 
   goalsag: [] | any 
+  scorer : [] | any 
+  assists : [] | any 
+  bestnotes: [] | any 
 
   constructor(private standingService : StandingService, private router : Router, private route : ActivatedRoute) { 
     
@@ -51,7 +54,17 @@ export class ClassementComponent implements OnInit {
   console.log(this.goalsag)
  })
 
+ this.standingService.getTopScorer(this._id).subscribe(data => {
+   this.scorer = data
+ })
 
+ this.standingService.getTopAssist(this._id).subscribe(data => {
+   this.assists= data
+ })
+
+ this.standingService.getBestNote(this._id).subscribe(data => {
+   this.bestnotes = data
+ })
     
 }
 }
