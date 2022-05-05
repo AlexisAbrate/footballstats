@@ -21,7 +21,10 @@ export class FixtureComponent implements OnInit {
   goals_away: [] | any
   goals_home: [] | any
   score: any
-  lineup: [] | any
+  formation_home: [] | any
+  formation_away: [] | any
+  lineup_home: [] | any
+  lineup_away: [] | any
   stats: [] | any
   players: [] | any
   scorer: [] | any
@@ -39,7 +42,10 @@ export class FixtureComponent implements OnInit {
       this.goals = this.response.goals
       this.score = this.response.score
       this.events = this.response.events
-      this.lineup = this.response.lineups
+      this.formation_home = this.response.lineups[0].formation
+      this.formation_away= this.response.lineups[1].formation
+      this.lineup_home = this.response.lineups[0].startXI
+      this.lineup_away = this.response.lineups[1].startXI
       this.stats = this.response.statistics
       this.players = this.response.players
     })  
@@ -52,8 +58,10 @@ export class FixtureComponent implements OnInit {
       this.goals_home = data
     })
 
+    
+
   }
-   
 
-
+  
+  
 }

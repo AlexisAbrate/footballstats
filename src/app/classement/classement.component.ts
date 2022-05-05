@@ -115,10 +115,10 @@ export class ClassementComponent implements OnInit {
   console.log(this.goalsfor)
  })
 
- this.standingService.getGoalsAg(this._id).subscribe(data => {
+ /*this.standingService.getGoalsAg(this._id).subscribe(data => {
   this.goalsag = data
   console.log(this.goalsag)
- })
+ })*/
 
 
 
@@ -136,8 +136,6 @@ export class ClassementComponent implements OnInit {
 
  this.standingService.getDataChart(this._id).subscribe(data => {
    this.dataChart = data
-   //this.dataSetFor = this.dataChart[0]
-   //this.dataSetAg = this.dataChart[1]
    console.log(data)
  })
     
