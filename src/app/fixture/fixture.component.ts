@@ -26,8 +26,10 @@ export class FixtureComponent implements OnInit {
   lineup_home: [] | any
   lineup_away: [] | any
   stats: [] | any
-  players: [] | any
+  players_home : {} | any
+  players_away : {} | any
   scorer: [] | any
+
 
   constructor(private service : FixtureService, private route : ActivatedRoute) { }
 
@@ -47,8 +49,15 @@ export class FixtureComponent implements OnInit {
       this.lineup_home = this.response.lineups[0].startXI
       this.lineup_away = this.response.lineups[1].startXI
       this.stats = this.response.statistics
-      this.players = this.response.players
     })  
+
+    this.service.getPhotosHome(this._id).subscribe(data => {
+      this.players_home = data
+    })
+
+    this.service.getPhotosAway(this._id).subscribe(data => {
+      this.players_away = data
+    })
 
     this.service.getGoalsAway(this._id).subscribe(data => {
       this.goals_away = data
@@ -58,6 +67,9 @@ export class FixtureComponent implements OnInit {
       this.goals_home = data
     })
 
+    this.service.getGoalsAway(this._id).subscribe(data => {
+      this.goals_away = data
+    })
     
 
   }

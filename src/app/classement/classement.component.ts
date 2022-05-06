@@ -124,6 +124,7 @@ export class ClassementComponent implements OnInit {
 
  this.standingService.getTopScorer(this._id).subscribe(data => {
    this.scorer = data
+   
  })
 
  this.standingService.getTopAssist(this._id).subscribe(data => {
