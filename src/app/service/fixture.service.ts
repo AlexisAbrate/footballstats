@@ -47,4 +47,19 @@ export class FixtureService {
      return rep
    }
 
+
+   private _url_photos_home = 'http://localhost:8282/fixtures/photo-home/'
+
+   getPhotosHome(id: Number) {
+     var rep = this._http.get(this._url_photos_home+id)
+     return rep
+   }
+
+   private _url_photos_away = 'http://localhost:8282/fixtures/photo-away/'
+
+   getPhotosAway(id: Number) {
+     var rep = this._http.get(this._url_photos_away+id)
+     return rep
+   }
+
   }

@@ -2,7 +2,7 @@
   <div class="card">
     <img class="card-img-top" src={{teams.home.logo}} alt="Card image cap" style="width: 150px; margin-left: 180px; margin-top: 50px;">
     <div class="card-body">
-      <h5 class="card-title" style="text-align: center">{{teams.home.name}}</h5>
+      <h5 class="card-title" style="text-align: center"><a [routerLink]="['/team/',teams.home.id]">{{teams.home.name}}</a></h5>
     </div>
   </div>
 
@@ -44,85 +44,136 @@
   <div class="card">
     <img class="card-img-top" src={{teams.away.logo}}  alt="Card image cap" style="width: 150px; margin-left: 180px; margin-top: 50px;">
     <div class="card-body">
-      <h5 class="card-title" style="text-align: center">{{teams.away.name}}</h5>
+      <h5 class="card-title" style="text-align: center"><a [routerLink]="['/team/',teams.away.id]">{{teams.away.name}}</a></h5>
     </div>
   </div>
 </div>
 
-<!--
-<div class="container">
-    La classe .mt permet de rajouter une marge externe supérieure
-    <div class="row mt-3">
-        <div class="col-md-4">
-            <img class="card-img-top" src={{teams.home.logo}} alt="Card image cap">
-        </div>
-        <div class="col-md-3">
-            {{score.fulltime.home}} - {{score.fulltime.away}}
-        </div>
-        <div class="col-md-4 bg-success">
-            .col-12 par défaut / .col-3 pour les fenêtres >= 768px
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col col-md-3 bg-info">
-            .col (= .col-4 ici) par défaut / .col-3 à partir de 768px
-        </div>
-        <div class="col col-md-6 bg-warning">
-            .col (= .col-4 ici) par défaut / .col-6 à partir de 768px
-        </div>
-        <div class="col col-md-3 bg-success">
-            .col (= .col-4 ici) par défaut / .col-3 à partir de 768px
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-md-3 col-lg-4 bg-info">
-            .col-12 puis .col3 dès 768px puis .col4 dès 992px
-        </div>
-        <div class="col-md-6 col-lg-4 bg-warning">
-            .col-12 puis .col6 dès 768px puis .col4 dès 992px
-        </div>
-        <div class="col-md-3 col-lg-4 bg-success">
-            .col-12 puis .col3 dès 768px puis .col4 dès 992px
+<div style="margin-left: 15%; margin-top: 5%;">
+    <img src="../assets/img/terrain-de-foot.png" style="width: 1300px;"/>
+</div>
+
+<div>{{formation_home}}</div>
+<div *ngFor="let player of lineup_home" style="align-items: center;">
+    <div id="h{{formation_home}}{{player.player.grid}}">
+        <div>
+        <img src="{{players_home[player.player.id]}}" width="50 px" class="rounded-circle"/>
+            </div><br>
+        <div style="text-align: center;">
+            <a [routerLink]="['/players/', player.player.id]">{{player.player.name}}</a> 
         </div>
     </div>
 </div>
+
+<div>{{formation_away}}</div>
+<div *ngFor="let player of lineup_away" style="align-items: center;">
+    <div id="a{{formation_away}}{{player.player.grid}}">
+            <div>
+            <img src="{{players_away[player.player.id]}}" width="50 px" class="rounded-circle"/>
+                </div><br>
+            <div style="text-align: center;">
+                <a [routerLink]="['/players/', player.player.id]">{{player.player.name}}</a> 
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+<!--
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+<br>
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+<br>
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+<div class="js-stage stage texture" style="margin-top: 100px;">
+    <div class="js-world world">
+        <div class="team js-team">
+        </div>
+        <div class="terrain js-terrain">
+            <div class="field field--alt"></div>
+            <div class="field ground">
+                <div class="field__texture field__texture--gradient"></div>
+                <div class="field__texture field__texture--gradient-b"></div>
+                <div class="field__texture field__texture--grass"></div>
+                <div class="field__line field__line--goal"></div>
+                <div class="field__line field__line--goal field__line--goal--far"></div>
+                <div class="field__line field__line--outline"></div>
+                <div class="field__line field__line--penalty"></div>
+                <div class="field__line field__line--penalty-arc"></div>
+                <div class="field__line field__line--penalty-arc field__line--penalty-arc--far"></div>
+                <div class="field__line field__line--mid"></div>
+                <div class="field__line field__line--circle"></div>
+                <div class="field__line field__line--penalty field__line--penalty--far"></div>
+            </div>
+            <div class="field__side field__side--front"></div>
+            <div class="field__side field__side--left"></div>
+            <div class="field__side field__side--right"></div>
+            <div class="field__side field__side--back"></div>
+        </div>
+    </div>
+    <div class="loading js-loading">PLEASE WAIT...</div>
+</div>
+
+
+<div style="position: absolute; top: 70%; left: 50%; z-index: 1;">
+    Bonjour
+</div>
 -->
 
-<div class="test">
-    <main style="opacity: 1;" class="">
-        <div class="static">
-    
-            <p style="opacity: 1; display: block; transform: translateX(0px) translateY(0px);" class="js-subheading">Experimental team line-up and football field using CSS 3D transforms.</p>
-            <div style="opacity: 1; display: block; transform: translateX(0px) translateY(0px);" class="js-switcher switcher">
-                <a href="#" class="js-switch disabled switch-btn">HOME</a><a href="#" class="js-switch switch-btn">AWAY</a>
-            </div>
-        </div>
-        <div class="js-stage stage texture">
-            <div style="opacity: 1; transform: translateZ(-200px) translateY(0px);" class="js-world world">
-                
-                <div class="terrain js-terrain">
-                    <div class="field field--alt"></div>
-                    <div class="field ground">
-                        <div class="field__texture field__texture--gradient"></div>
-                        <div class="field__texture field__texture--gradient-b"></div>
-                        <div class="field__texture field__texture--grass"></div>
-                        <div class="field__line field__line--goal"></div>
-                        <div class="field__line field__line--goal field__line--goal--far"></div>
-                        <div class="field__line field__line--outline"></div>
-                        <div class="field__line field__line--penalty"></div>
-                        <div class="field__line field__line--penalty-arc"></div>
-                        <div class="field__line field__line--penalty-arc field__line--penalty-arc--far"></div>
-                        <div class="field__line field__line--mid"></div>
-                        <div class="field__line field__line--circle"></div>
-                        <div class="field__line field__line--penalty field__line--penalty--far"></div>
-                    </div>
-                    <div class="field__side field__side--front"></div>
-                    <div class="field__side field__side--left"></div>
-                    <div class="field__side field__side--right"></div>
-                    <div class="field__side field__side--back"></div>
-                </div>
-            </div>
-    
-        </div>
-        </main>
-    </div>

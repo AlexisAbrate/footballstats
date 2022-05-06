@@ -23,8 +23,6 @@ export class StandingService {
     return rep;
 }
 
-
-
 private _url_topscorer = 'http://localhost:8282/classement/topscorer/'
 
   getTopScorer(id : Number){
