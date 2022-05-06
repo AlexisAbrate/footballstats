@@ -66,5 +66,32 @@ getDataChart(id: Number) {
  return rep  
 }
 
+private _url_XI_Goalkeeper = 'http://localhost:8282/classement/BestXI/Goalkeeper/'
+
+getXIGoal(id: Number, season: Number) {
+  var rep = this._http.get(this._url_XI_Goalkeeper+id+"/2021")
+  return rep
+}
+
+private _url_XI_Defender = 'http://localhost:8282/classement/BestXI/Defender/'
+
+getXIDefense(id: Number, season: Number) {
+  var rep = this._http.get(this._url_XI_Defender+id+"/2021")
+  return rep
+}
+
+private _url_XI_Midfielder = 'http://localhost:8282/classement/BestXI/Midfielder/'
+
+getXIMidfield(id: Number, season: Number) {
+  var rep = this._http.get(this._url_XI_Midfielder+id+"/2021")
+  return rep
+}
+
+private _url_XI_Attack= 'http://localhost:8282/classement/BestXI/Attacker/'
+
+getXIAttack(id: Number, season: Number) {
+  var rep = this._http.get(this._url_XI_Attack+id+"/2021")
+  return rep
+}
 
 }

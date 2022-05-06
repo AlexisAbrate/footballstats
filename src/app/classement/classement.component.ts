@@ -24,6 +24,14 @@ export class ClassementComponent implements OnInit {
   dataSetFor: [] | any
   dataSetAg: [] | any
   chart : [] | any
+  XIAttack : [] | any
+  XIMidfield : [] | any
+  XIDefend : [] | any
+  XIGoal : [] | any
+  playsAttack : [] | any
+  playsMid : [] | any
+  playsDef : [] | any
+  playsGoal : [] | any
  
 
   
@@ -139,8 +147,82 @@ export class ClassementComponent implements OnInit {
    this.dataChart = data
    console.log(data)
  })
+
+ this.standingService.getXIAttack(this._id,2021).subscribe(data => {
+  this.playsAttack = data
+  var attack = []
+  var count = 1
+  var dataJson = {"team": "", "name": "", "note": "", "logo":"","id_class":""};
+  for(let element of this.playsAttack){
+    
+    dataJson.team = element.statistics[0].team.name
+    dataJson.logo = element.statistics[0].team.logo
+    dataJson.note = element.statistics[0].games.rating
+    dataJson.name = element.player.name
+    dataJson.id_class = "attacker" + count
+    attack.push({...dataJson})
+    count++
+ }
+
+ this.XIAttack = attack
+ console.log(this.XIAttack)
+})
+   
+ this.standingService.getXIMidfield(this._id,2021).subscribe(data => {
+  this.playsMid = data
+  var mid = []
+  var count = 1
+  var dataJson = {"team": "", "name": "", "note": "", "logo":"","id_class":""};
+  for(let element of this.playsMid){
+    dataJson.team = element.statistics[0].team.name
+    dataJson.logo = element.statistics[0].team.logo
+    dataJson.note = element.statistics[0].games.rating
+    dataJson.name = element.player.name
+    dataJson.id_class = "midfield" + count 
+    mid.push({...dataJson})
+    count++
+}
+
+this.XIMidfield = mid
+console.log(this.XIMidfield)
+})
+
+
+this.standingService.getXIDefense(this._id,2021).subscribe(data => {
+  this.playsDef = data
+  var def = []
+  var count = 1
+  var dataJson = {"team": "", "name": "", "note": "", "logo":"","id_class":""};
+  for(let element of this.playsDef){
+    dataJson.team = element.statistics[0].team.name
+    dataJson.logo = element.statistics[0].team.logo
+    dataJson.note = element.statistics[0].games.rating
+    dataJson.name = element.player.name
+    dataJson.id_class = "defender"+count
+    def.push({...dataJson})
+    count++
+}
+this.XIDefend = def
+console.log(this.XIDefend)
+})
+
+this.standingService.getXIGoal(this._id,2021).subscribe(data => {
+  this.playsGoal = data
+  var goal = []
+  var dataJson = {"team": "", "name": "", "note": "", "logo":"","id_class":""};
+  for(let element of this.playsGoal){
+    dataJson.team = element.statistics[0].team.name
+    dataJson.logo = element.statistics[0].team.logo
+    dataJson.note = element.statistics[0].games.rating
+    dataJson.name = element.player.name
+    dataJson.id_class = "goal"
+    goal.push({...dataJson})
     
 }
+  this.XIGoal = goal
+  console.log(this.XIGoal)
+})
+
 }
-
-
+ 
+}
