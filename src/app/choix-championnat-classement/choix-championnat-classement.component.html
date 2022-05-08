@@ -1,39 +1,39 @@
-<div class="container">
-
+<div class="col-12">
     <div class="row" style="margin-top: 100px;">
-        <div class="col-md-3">
+        <div class="col-2">
             <div class="container">
                 <a [routerLink]="['/classement/', ligue1.league.id]"><img src="{{ligue1.league.logo}}"></a>
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-2">
             <div class="container">
                 <a [routerLink]="['/classement/', bundes.league.id]"><img src="{{bundes.league.logo}}"></a>
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-2">
             <div class="container">
                 <a  [routerLink]="['/classement/', liga.league.id]"><img src="{{liga.league.logo}}"></a>
             </div>
         </div>
-    </div>
-   
 
-    <div class="row">
-        <div class="col-md-3">
-            <a [routerLink]="['/classement/', serie.league.id]"><img src="{{serie.league.logo}}" ></a>
-        </div>
-
-        <div class="col-md-3">
-            <div class="container">
-                <a [routerLink]="['/classement/', premier.league.id]"><img src="{{premier.league.logo}}"></a>
+            <div class="col-2">
+                <div class="container">
+                    <a [routerLink]="['/classement/', serie.league.id]"><img src="{{serie.league.logo}}" ></a>
+                </div>
+                
             </div>
-        </div>
-    </div>  
     
-    
-    
+            <div class="col-2">
+                <div class="container">
+                    <a [routerLink]="['/classement/', premier.league.id]"><img src="{{premier.league.logo}}"></a>
+                </div>
+                    
+            </div>
+    </div>
 </div>
+    
+    
+
     

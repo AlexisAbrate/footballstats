@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class TeamsService {
 
   }
 
-  private _url_team = 'http://localhost:8282/teams/id/'
+  private _url_team = environment.apiUrl+'teams/id/'
 
   getTeam(id: Number) {
     console.log(id)
@@ -20,7 +21,7 @@ export class TeamsService {
   }
 
 
-  private _url_fixture_team1 = 'http://localhost:8282/fixtures/team/' 
+  private _url_fixture_team1 = environment.apiUrl+'fixtures/team/' 
   private _url_fixture_team2 = '/season/2021'
 
   getFixtures(id: Number) {
@@ -31,14 +32,14 @@ export class TeamsService {
     
   }
 
-  private _url_players = 'http://localhost:8282/teams/players/teamid/'
+  private _url_players = environment.apiUrl+'teams/players/teamid/'
 
   getPlayers(id: Number) {
     var rep = this._http.get(this._url_players+id)
     return rep
   }
 
-  private _url_stats = 'http://localhost:8282/team/stats/'
+  private _url_stats = environment.apiUrl+'team/stats/'
 
   getStats(id: Number, season: Number) {
     var rep = this._http.get(this._url_stats+season+"/"+id)
