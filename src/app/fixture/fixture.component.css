@@ -1,9 +1,9 @@
-/*5-4-1 HOME*/
+/* ------------------------- 5-4-1 HOME --------------------*/
 
 /* Gardien */
 #h5-4-1_11 {
   position: absolute; 
-  top: 86%; 
+  top: 88%; 
   left: 20%; 
   z-index: 1;
   font-weight: bold;
@@ -98,7 +98,7 @@
 /* Gardien */
 #a4-4-2_11 {
   position: absolute; 
-  top: 86%; 
+  top: 88%; 
   left: 75%; 
   z-index: 1;
   font-weight: bold;
@@ -188,6 +188,201 @@
   position: absolute; 
   top: 70%; 
   left: 52%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+
+/* --------------------------- 4-4-2 Home ---------------------- */
+
+
+/* Gardien */
+#h4-4-2_11 {
+  position: absolute; 
+  top: 88%; 
+  left: 20%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Arriere droit */ 
+#h4-4-2_21 {
+  position: absolute; 
+  top: 52%; 
+  left: 26%; 
+  z-index: 1;
+  font-weight: bold;
+}
+/*Central Gauche*/
+#h4-4-2_24 {
+  position: absolute; 
+  top: 70%; 
+  left: 26%; 
+  z-index: 1;
+  font-weight: bold;
+}
+/*Central droit*/
+#h4-4-2_22 {
+  position: absolute; 
+  top: 100%; 
+  left: 26%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Arriere gauche */ 
+#h4-4-2_23 {
+  position: absolute; 
+  top: 120%; 
+  left: 26%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Milieu central gauche */ 
+#h4-4-2_32 {
+  position: absolute; 
+  top: 96%; 
+  left: 36%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Milieu central droit */ 
+#h4-4-2_33 {
+  position: absolute; 
+  top: 76%; 
+  left: 36%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Milieu droit */ 
+#h4-4-2_34 {
+  position: absolute; 
+  top: 60%; 
+  left: 36%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Milieu gauche */ 
+#h4-4-2_31 {
+  position: absolute; 
+  top: 112%; 
+  left: 36%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Attaquant gauche */ 
+#h4-4-2_41 {
+  position: absolute; 
+  top: 100%; 
+  left: 44%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Attaquant droit */ 
+#h4-4-2_42 {
+  position: absolute; 
+  top: 70%; 
+  left: 44%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* ------------------------- 4-2-2-2 AWAY --------------------*/
+
+/* Gardien */
+#a4-2-2-2_11 {
+  position: relative; 
+  top: 70%; 
+  left: 20%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Central gauche */
+#h5-4-1_21 {
+  position: absolute; 
+  top: 70%; 
+  left: 25%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Arriere droit */
+#h5-4-1_22 {
+  position: absolute; 
+  top: 120%; 
+  left: 30%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+/* Arriere gauche */
+#h5-4-1_23 {
+  position: absolute; 
+  top: 52%; 
+  left: 30%; 
+  z-index: 1;
+  font-weight: bold;
+}
+/* Central central */
+#h5-4-1_24 {
+  position: absolute; 
+  top: 86%; 
+  left: 25%; 
+  z-index: 1;
+  font-weight: bold;
+}
+/* Central droit */
+#h5-4-1_25 {
+  position: absolute; 
+  top: 102%; 
+  left: 25%; 
+  z-index: 1;
+  font-weight: bold;
+}
+/* Milieu central gauche*/
+#h5-4-1_34 {
+  position: absolute; 
+  top: 76%; 
+  left: 35%; 
+  z-index: 1;
+  font-weight: bold;
+}
+/* Milieu central droit */
+#h5-4-1_33 {
+  position: absolute; 
+  top: 96%; 
+  left: 35%; 
+  z-index: 1;
+  font-weight: bold;
+}
+/* Milieu droit */
+#h5-4-1_32 {
+  position: absolute; 
+  top: 112%; 
+  left: 35%; 
+  z-index: 1;
+  font-weight: bold;
+}
+/* Milieu gauche */
+#h5-4-1_31 {
+  position: absolute; 
+  top: 60%; 
+  left: 35%; 
+  z-index: 1;
+  font-weight: bold;
+}
+/* Attaquant pointe seul */
+#h5-4-1_41 {
+  position: absolute; 
+  top: 86%; 
+  left: 45%; 
   z-index: 1;
   font-weight: bold;
 }

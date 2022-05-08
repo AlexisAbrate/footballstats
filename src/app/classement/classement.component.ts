@@ -178,7 +178,7 @@ export class ClassementComponent implements OnInit {
     dataJson.logo = element.statistics[0].team.logo
     dataJson.note = element.statistics[0].games.rating
     dataJson.name = element.player.name
-    dataJson.id_class = "midfield" + count 
+    dataJson.id_class = "midfield"+count 
     mid.push({...dataJson})
     count++
 }

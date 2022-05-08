@@ -1,179 +1,111 @@
 <div class="card-group">
   <div class="card">
-    <img class="card-img-top" src={{teams.home.logo}} alt="Card image cap" style="width: 150px; margin-left: 180px; margin-top: 50px;">
+    <img
+      class="card-img-top"
+      src="{{ teams.home.logo }}"
+      alt="Card image cap"
+      style="width: 150px; margin-left: 180px; margin-top: 50px"
+    />
     <div class="card-body">
-      <h5 class="card-title" style="text-align: center"><a [routerLink]="['/team/',teams.home.id]">{{teams.home.name}}</a></h5>
+      <h5 class="card-title" style="text-align: center">
+        <a [routerLink]="['/team/', teams.home.id]">{{ teams.home.name }}</a>
+      </h5>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-        <div class="row mt-3"> 
-            <h2 style="text-align: center" >{{score.fulltime.home}} - {{score.fulltime.away}}</h2>
-        </div>
-        <br>
-        <div class="row mt-3"> 
-            <div class="col-md-8">
-                <div class="row mt-3" *ngFor="let goala of goals_home">
-                <div>
-                    {{goala.player.name}} ({{goala.time.elapsed}}') <img src="../assets/img/ballon.png" style="width: 20px;"/>
-                </div>
-                <br>
-                <div>
-                    {{goala.assist.name}}<img src="../assets/img/passde.png" style="width: 20px;"/>
-                </div>
-                    
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="row mt-3" *ngFor="let goala of goals_away">
-                    <div>
-                        {{goala.player.name}} ({{goala.time.elapsed}}') <img src="../assets/img/ballon.png" style="width: 20px;"/>
-                    </div>
-                    <br>
-                    <div>
-                        {{goala.assist.name}}<img src="../assets/img/passde.png" style="width: 20px;"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-  </div>
-
-  <div class="card">
-    <img class="card-img-top" src={{teams.away.logo}}  alt="Card image cap" style="width: 150px; margin-left: 180px; margin-top: 50px;">
-    <div class="card-body">
-      <h5 class="card-title" style="text-align: center"><a [routerLink]="['/team/',teams.away.id]">{{teams.away.name}}</a></h5>
-    </div>
-  </div>
-</div>
-
-<div style="margin-left: 15%; margin-top: 5%;">
-    <img src="../assets/img/terrain-de-foot.png" style="width: 1300px;"/>
-</div>
-
-<div>{{formation_home}}</div>
-<div *ngFor="let player of lineup_home" style="align-items: center;">
-    <div id="h{{formation_home}}{{player.player.grid}}">
-        <div>
-        <img src="{{players_home[player.player.id]}}" width="50 px" class="rounded-circle"/>
-            </div><br>
-        <div style="text-align: center;">
-            <a [routerLink]="['/players/', player.player.id]">{{player.player.name}}</a> 
-        </div>
-    </div>
-</div>
-
-<div>{{formation_away}}</div>
-<div *ngFor="let player of lineup_away" style="align-items: center;">
-    <div id="a{{formation_away}}{{player.player.grid}}">
+      <div class="row mt-3">
+        <h2 style="text-align: center">
+          {{ score.fulltime.home }} - {{ score.fulltime.away }}
+        </h2>
+      </div>
+      <br />
+      <div class="row mt-3">
+        <div class="col-md-8">
+          <div class="row mt-3" *ngFor="let goala of goals_home">
             <div>
-            <img src="{{players_away[player.player.id]}}" width="50 px" class="rounded-circle"/>
-                </div><br>
-            <div style="text-align: center;">
-                <a [routerLink]="['/players/', player.player.id]">{{player.player.name}}</a> 
+              {{ goala.player.name }} ({{ goala.time.elapsed }}')
+              <img src="../assets/img/ballon.png" style="width: 20px" />
             </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-<!--
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-
-<br>
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-
-<br>
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-
-
-<div class="js-stage stage texture" style="margin-top: 100px;">
-    <div class="js-world world">
-        <div class="team js-team">
-        </div>
-        <div class="terrain js-terrain">
-            <div class="field field--alt"></div>
-            <div class="field ground">
-                <div class="field__texture field__texture--gradient"></div>
-                <div class="field__texture field__texture--gradient-b"></div>
-                <div class="field__texture field__texture--grass"></div>
-                <div class="field__line field__line--goal"></div>
-                <div class="field__line field__line--goal field__line--goal--far"></div>
-                <div class="field__line field__line--outline"></div>
-                <div class="field__line field__line--penalty"></div>
-                <div class="field__line field__line--penalty-arc"></div>
-                <div class="field__line field__line--penalty-arc field__line--penalty-arc--far"></div>
-                <div class="field__line field__line--mid"></div>
-                <div class="field__line field__line--circle"></div>
-                <div class="field__line field__line--penalty field__line--penalty--far"></div>
+            <br />
+            <div>
+              {{ goala.assist.name
+              }}<img src="../assets/img/passde.png" style="width: 20px" />
             </div>
-            <div class="field__side field__side--front"></div>
-            <div class="field__side field__side--left"></div>
-            <div class="field__side field__side--right"></div>
-            <div class="field__side field__side--back"></div>
+          </div>
         </div>
+        <div class="col-md-4">
+          <div class="row mt-3" *ngFor="let goala of goals_away">
+            <div>
+              {{ goala.player.name }} ({{ goala.time.elapsed }}')
+              <img src="../assets/img/ballon.png" style="width: 20px" />
+            </div>
+            <br />
+            <div>
+              {{ goala.assist.name
+              }}<img src="../assets/img/passde.png" style="width: 20px" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="loading js-loading">PLEASE WAIT...</div>
+  </div>
+
+  <div class="card">
+    <img
+      class="card-img-top"
+      src="{{ teams.away.logo }}"
+      alt="Card image cap"
+      style="width: 150px; margin-left: 180px; margin-top: 50px"
+    />
+    <div class="card-body">
+      <h5 class="card-title" style="text-align: center">
+        <a [routerLink]="['/team/', teams.away.id]">{{ teams.away.name }}</a>
+      </h5>
+    </div>
+  </div>
 </div>
 
-
-<div style="position: absolute; top: 70%; left: 50%; z-index: 1;">
-    Bonjour
+<div class="container">
+    <div style="margin-left: -8%; margin-top: 9%">
+        <img src="../assets/img/terrain-de-foot.png" style="width: 1300px" />
+      </div>
+      
+      <div>{{ formation_home }}</div>
+      <div *ngFor="let player of lineup_home" style="align-items: center">
+        <div id="h{{ formation_home }}{{ player.player.grid }}">
+          <div>
+            <img
+              src="{{ players_home[player.player.id] }}"
+              width="50 px"
+              class="rounded-circle"
+            />
+          </div>
+          <br />
+          <div style="text-align: center">
+            <a [routerLink]="['/players/', player.player.id]">{{
+              player.player.name
+            }}</a>
+          </div>
+        </div>
+      </div>
+      
+      <div>{{ formation_away }}</div>
+      <div *ngFor="let player of lineup_away" style="align-items: center">
+        <div id="a{{ formation_away }}{{ player.player.grid }}">
+          <div>
+            <img
+              src="{{ players_away[player.player.id] }}"
+              width="50 px"
+              class="rounded-circle"
+            />
+          </div>
+          <br />
+          <div style="text-align: center">
+            <a [routerLink]="['/players/', player.player.id]">{{player.player.name}}{{player.player.grid}}</a>
+          </div>
+        </div>
+      </div>    
 </div>
--->
 

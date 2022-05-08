@@ -61,7 +61,102 @@
     border: 1px solid #dedede
   }
 
-  #chartbut {
-
+  #attacker1 {
+    position: absolute; 
+    top: 505%; 
+    left: 40%; 
+    z-index: 1;
+    font-weight: bold;
     
   }
+
+  #attacker2 {
+    position: absolute; 
+    top: 505%; 
+    left: 54%; 
+    z-index: 1;
+    font-weight: bold;
+  }
+
+  #midfield4 {
+  position: absolute; 
+  top: 525%; 
+  left: 40%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+#midfield3 {
+  position: absolute; 
+  top: 525%; 
+  left: 54%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+#midfield1 {
+  position: absolute; 
+  top: 525%; 
+  left: 70%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+#midfield2 {
+  position: absolute; 
+  top: 525%; 
+  left: 25%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+#defender1 {
+  position: absolute; 
+  top: 545%; 
+  left: 25%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+
+#defender2 {
+  position: absolute; 
+  top: 545%; 
+  left: 40%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+#defender3 {
+  position: absolute; 
+  top: 545%; 
+  left: 54%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+#defender4 {
+  position: absolute; 
+  top: 545%; 
+  left: 70%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+#goal{
+  position: absolute; 
+  top: 565%; 
+  left: 47%; 
+  z-index: 1;
+  font-weight: bold;
+}
+
+
+#contour {
+  border : solid;
+  border-radius: 2em;
+  width: 160px;
+  height: 160px;
+  align-items: center;
+  background-color: white;
+}

@@ -267,14 +267,96 @@
       </div>
     </section>
 
-    <section style="margin-top: 50px">
+    <section id="xi_type" style="margin-top: 50px">
       <div class="row">
-        <span style="text-align: center"
+        <span style="text-align: center; font-weight: bold;"
           >Onze type de {{ response.league.name }}</span>
       </div>
-      <div style="margin-left: 25%;">
-          <img src="../assets/img/demiterrain.png">
+      <div style="margin-left: 10%;">
+          <img src="../assets/img/demiterrain.png" style="width: 1560px;">
       </div>
+      <div *ngFor="let attack of XIAttack">
+        <div id="{{attack.id_class}}" class="text-center">
+          <div class="container" id="contour">
+            <div class="row">
+              <div>
+                <img  src="{{attack.logo}}" class="text-center" style="width: 50px; margin-top: 10px;">
+              </div>
+            </div>
+            <div class="row"> 
+              <h5 style="font-size: 0.8em; font-weight: bold">{{attack.team}}</h5>
+            </div>
+            <div class="row">
+              <p style="font-size: 0.8em; font-weight: bold">{{attack.name}}</p> 
+            </div>
+            <div class="row" style="font-size: 0.8em; font-weight: bold"> 
+              <p>{{attack.note}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let mid of XIMidfield">
+        <div id="{{mid.id_class}}" class="text-center">
+          <div class="container" id="contour">
+            <div class="row">
+              <div>
+                <img  src="{{mid.logo}}" class="text-center" style="width: 50px; margin-top: 10px;">
+              </div>
+            </div>
+            <div class="row"> 
+              <h5 style="font-size: 0.8em; font-weight: bold">{{mid.team}}</h5>
+            </div>
+            <div class="row">
+              <p style="font-size: 0.8em; font-weight: bold">{{mid.name}}</p> 
+            </div>
+            <div class="row" style="font-size: 0.8em; font-weight: bold"> 
+              <p>{{mid.note}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let def of XIDefend">
+        <div id="{{def.id_class}}" class="text-center">
+          <div class="container" id="contour">
+            <div class="row">
+              <div>
+                <img  src="{{def.logo}}" class="text-center" style="width: 50px; margin-top: 10px;">
+              </div>
+            </div>
+            <div class="row"> 
+              <h5 style="font-size: 0.8em; font-weight: bold">{{def.team}}</h5>
+            </div>
+            <div class="row">
+              <p style="font-size: 0.8em; font-weight: bold">{{def.name}}</p> 
+            </div>
+            <div class="row" style="font-size: 0.8em; font-weight: bold"> 
+              <p>{{def.note}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngFor="let g of XIGoal">
+        <div id="{{g.id_class}}" class="text-center">
+          <div class="container" id="contour">
+            <div class="row">
+              <div>
+                <img  src="{{g.logo}}" class="text-center" style="width: 50px; margin-top: 10px;">
+              </div>
+            </div>
+            <div class="row"> 
+              <h5 style="font-size: 0.8em; font-weight: bold;">{{g.team}}</h5>
+            </div>
+            <div class="row">
+              <p style="font-size: 0.8em; font-weight: bold">{{g.name}}</p> 
+            </div>
+            <div class="row" style="font-size: 0.8em; font-weight: bold"> 
+              <p>{{g.note}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <link
