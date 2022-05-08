@@ -29,6 +29,7 @@ export class FixtureComponent implements OnInit {
   players_home : {} | any
   players_away : {} | any
   scorer: [] | any
+  status: any
 
 
   constructor(private service : FixtureService, private route : ActivatedRoute) { }
@@ -39,6 +40,7 @@ export class FixtureComponent implements OnInit {
       this.response = data;
       console.log(this.response)
       this.fixtures = this.response.fixture
+      this.status = this.response.fixture.status.short
       this.league = this.response.league
       this.teams = this.response.teams
       this.goals = this.response.goals

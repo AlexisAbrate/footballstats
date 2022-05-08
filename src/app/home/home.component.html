@@ -1,10 +1,192 @@
-<p>{{todayDate}}</p>
+
+<div>
+    <div class="container" style="align-items: center;">
+        <div class="row">
+            <div>
+                <p>{{todayDate}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <select>
+                <option value="yesterday">Hier</option>
+                <option value="{{todayDate}}" selected>Aujourd'hui</option>
+                <option value="tomorrow">Demain</option>
+              </select>
+        </div>
+    </div>
+
+    <div *ngIf="fixturesFrance != null" class="container" id="match_france">
+            <div class="row">
+                <div>
+                    SCORE LIGUE 1 
+                </div>
+            </div>
+            <div *ngFor="let match of fixturesFrance">
+                <div class="row">
+                    <div class="col-2"> 
+                        {{match.fixture.date | date:'dd-MM-yyyy'}}
+                    </div>
+                    <div class="col-2">
+                        <a [routerLink]="['/team/', match.teams.home.id]">{{match.teams.home.name}}</a>
+                    </div>
+                    <div class="col-1">
+                        <img src="{{match.teams.home.logo}}" style="width: 40px;"> 
+                    </div>
+                    <div class="col-1">
+                        <a *ngIf="match.fixture.status.long == 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]">{{match.score.fulltime.home}} - {{match.score.fulltime.away}}</a>
+                        <a *ngIf="match.fixture.status.long != 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]" style="align-items: center;">{{match.fixture.date | date:'HH:mm'}}</a>
+                    </div>
+                    <div class="col-2">
+                        <img src="{{match.teams.away.logo}}" style="width: 40px;">
+                    </div>
+                    <div class="col-2">
+                        <a [routerLink]="['/team/', match.teams.away.id]">{{match.teams.away.name}}</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <div *ngIf="fixturesAngleterre != null" class="container" id="match_angleterre">
+        <div class="row">
+            <div>
+                SCORE PREMIERE LEAGUE 
+            </div>
+        </div>
+        <div *ngFor="let match of fixturesAngleterre">
+            <div class="row">
+                <div class="col-2"> 
+                    {{match.fixture.date | date:'dd-MM-yyyy'}}
+                </div>
+                <div class="col-2">
+                    <a [routerLink]="['/team/', match.teams.home.id]">{{match.teams.home.name}}</a>
+                </div>
+                <div class="col-1">
+                    <img src="{{match.teams.home.logo}}" style="width: 40px;"> 
+                </div>
+                <div class="col-1">
+                    <a *ngIf="match.fixture.status.long == 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]">{{match.score.fulltime.home}} - {{match.score.fulltime.away}}</a>
+                    <a *ngIf="match.fixture.status.long != 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]" style="align-items: center;">{{match.fixture.date | date:'HH:mm'}}</a>
+                </div>
+                <div class="col-2">
+                    <img src="{{match.teams.away.logo}}" style="width: 40px;">
+                </div>
+                <div class="col-2">
+                    <a [routerLink]="['/team/', match.teams.away.id]">{{match.teams.away.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="fixturesItalie != null" class="container" id="match_italie">
+        <div class="row">
+            <div>
+                SCORE SERIE A 
+            </div>
+        </div>
+        <div *ngFor="let match of fixturesItalie">
+            <div class="row">
+                <div class="col-2"> 
+                    {{match.fixture.date | date:'dd-MM-yyyy'}}
+                </div>
+                <div class="col-2">
+                    <a [routerLink]="['/team/', match.teams.home.id]">{{match.teams.home.name}}</a>
+                </div>
+                <div class="col-1">
+                    <img src="{{match.teams.home.logo}}" style="width: 40px;"> 
+                </div>
+                <div class="col-1">
+                    <a *ngIf="match.fixture.status.long == 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]">{{match.score.fulltime.home}} - {{match.score.fulltime.away}}</a>
+                    <a *ngIf="match.fixture.status.long != 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]" style="align-items: center;">{{match.fixture.date | date:'HH:mm'}}</a>
+                </div>
+                <div class="col-2">
+                    <img src="{{match.teams.away.logo}}" style="width: 40px;">
+                </div>
+                <div class="col-2">
+                    <a [routerLink]="['/team/', match.teams.away.id]">{{match.teams.away.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="fixturesEspagne != null" class="container" id="match_espagne">
+        <div class="row">
+            <div>
+                SCORE LIGA
+            </div>
+        </div>
+        <div *ngFor="let match of fixturesEspagne">
+            <div class="row">
+                <div class="col-2"> 
+                    {{match.fixture.date | date:'dd-MM-yyyy'}}
+                </div>
+                <div class="col-2">
+                    <a [routerLink]="['/team/', match.teams.home.id]">{{match.teams.home.name}}</a>
+                </div>
+                <div class="col-1">
+                    <img src="{{match.teams.home.logo}}" style="width: 40px;"> 
+                </div>
+                <div class="col-1">
+                    <a *ngIf="match.fixture.status.long == 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]">{{match.score.fulltime.home}} - {{match.score.fulltime.away}}</a>
+                    <a *ngIf="match.fixture.status.long != 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]" style="align-items: center;">{{match.fixture.date | date:'HH:mm'}}</a>
+                </div>
+                <div class="col-2">
+                    <img src="{{match.teams.away.logo}}" style="width: 40px;">
+                </div>
+                <div class="col-2">
+                    <a [routerLink]="['/team/', match.teams.away.id]">{{match.teams.away.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="fixturesAllemagne != null" class="container" id="match_allemagne">
+        <div class="row">
+            <div>
+                SCORE BUNDESLIGA
+            </div>
+        </div>
+        <div *ngFor="let match of fixturesAllemagne">
+            <div class="row">
+                <div class="col-2"> 
+                    {{match.fixture.date | date:'dd-MM-yyyy'}}
+                </div>
+                <div class="col-2">
+                    <a [routerLink]="['/team/', match.teams.home.id]">{{match.teams.home.name}}</a>
+                </div>
+                <div class="col-1">
+                    <img src="{{match.teams.home.logo}}" style="width: 40px;"> 
+                </div>
+                <div class="col-1">
+                    <a *ngIf="match.fixture.status.long == 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]">{{match.score.fulltime.home}} - {{match.score.fulltime.away}}</a>
+                    <a *ngIf="match.fixture.status.long != 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]" style="align-items: center;">{{match.fixture.date | date:'HH:mm'}}</a>
+                </div>
+                <div class="col-2">
+                    <img src="{{match.teams.away.logo}}" style="width: 40px;">
+                </div>
+                <div class="col-2">
+                    <a [routerLink]="['/team/', match.teams.away.id]">{{match.teams.away.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
    
-    <select>
-      <option value="{{todayDate}}" selected>Aujourd'hui</option>
-      <option value="yesterday">Saab</option>
-      <option value="tomorrow">Mercedes</option>
-    </select>
+    
  
 <section id="france">
 
@@ -22,16 +204,16 @@
                     <a [routerLink]="['/team/', fix.teams.home.id]">{{fix.teams.home.name}}</a>
                 </td>
                 <td>
-                   <img src="{{fix.teams.home.logo}}" style="width: 40px;"> 
+                   <img src="{{match.teams.home.logo}}" style="width: 40px;"> 
                 </td>
                 <td>
                     <a [routerLink]="['/fixture/', fix.fixture.id]">{{fix.score.fulltime.home}} : {{fix.score.fulltime.away}}</a>
                 </td>
                 <td>
-                    <img src="{{fix.teams.away.logo}}" style="width: 40px;">
+                    <img src="{{match.teams.away.logo}}" style="width: 40px;">
                 </td>
                 <td>
-                    <a [routerLink]="['/team/', fix.teams.away.id]">{{fix.teams.away.name}}</a>
+                    <a [routerLink]="['/team/', match.teams.away.id]">{{match.teams.away.name}}</a>
                 </td>
                 <td>
                     {{fix.fixture.date | date:'HH:mm'}}
