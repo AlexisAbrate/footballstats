@@ -63,7 +63,7 @@
 
   #attacker1 {
     position: absolute; 
-    top: 440%; 
+    top: 500%; 
     left: 40%; 
     z-index: 1;
     font-weight: bold;
@@ -72,7 +72,7 @@
 
   #attacker2 {
     position: absolute; 
-    top: 440%; 
+    top: 500%; 
     left: 54%; 
     z-index: 1;
     font-weight: bold;
@@ -80,7 +80,7 @@
 
   #midfield4 {
   position: absolute; 
-  top: 460%; 
+  top: 525%; 
   left: 40%; 
   z-index: 1;
   font-weight: bold;
@@ -88,7 +88,7 @@
 
 #midfield3 {
   position: absolute; 
-  top: 460%; 
+  top: 525%; 
   left: 54%; 
   z-index: 1;
   font-weight: bold;
@@ -96,7 +96,7 @@
 
 #midfield1 {
   position: absolute; 
-  top: 460%; 
+  top: 525%; 
   left: 70%; 
   z-index: 1;
   font-weight: bold;
@@ -104,7 +104,7 @@
 
 #midfield2 {
   position: absolute; 
-  top: 460%; 
+  top: 525%; 
   left: 25%; 
   z-index: 1;
   font-weight: bold;
@@ -112,7 +112,7 @@
 
 #defender1 {
   position: absolute; 
-  top: 480%; 
+  top: 550%; 
   left: 25%; 
   z-index: 1;
   font-weight: bold;
@@ -121,7 +121,7 @@
 
 #defender2 {
   position: absolute; 
-  top: 480%; 
+  top: 550%; 
   left: 40%; 
   z-index: 1;
   font-weight: bold;
@@ -129,7 +129,7 @@
 
 #defender3 {
   position: absolute; 
-  top: 480%; 
+  top: 550%; 
   left: 54%; 
   z-index: 1;
   font-weight: bold;
@@ -137,7 +137,7 @@
 
 #defender4 {
   position: absolute; 
-  top: 480%; 
+  top: 550%; 
   left: 70%; 
   z-index: 1;
   font-weight: bold;
@@ -145,7 +145,7 @@
 
 #goal{
   position: absolute; 
-  top: 500%; 
+  top: 570%; 
   left: 47%; 
   z-index: 1;
   font-weight: bold;

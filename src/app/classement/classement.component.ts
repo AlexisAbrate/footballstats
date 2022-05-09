@@ -33,7 +33,12 @@ export class ClassementComponent implements OnInit {
   playsDef : [] | any
   playsGoal : [] | any
  
+activeTab = {
+  tab_class: true,
+  calendar: true,
+  stats: true
 
+}
   
   constructor(private standingService : StandingService, private router : Router, private route : ActivatedRoute) { 
     

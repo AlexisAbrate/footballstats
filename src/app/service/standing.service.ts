@@ -24,7 +24,7 @@ export class StandingService {
     return rep;
 }
 
-private _url_topscorer = environment.apiUrl+'topscorer/'
+private _url_topscorer = environment.apiUrl+'classement/topscorer/'
 
   getTopScorer(id : Number){
     var rep = this._http.get(this._url_topscorer+"2021/"+id)
