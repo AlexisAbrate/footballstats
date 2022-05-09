@@ -74,7 +74,65 @@
   </div>
 </div>
 
-<div class="container" *ngIf="lineup_home!=null" >
+<div class="container" id="chronologie">
+<span>
+  Deroulé du match
+</span>
+<table width="900px" border="1">
+  <thead>
+    <th>Equipe</th><th>minute</th><th>Equipe</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of events">
+      <td>
+        <div *ngIf="event.team.id == teams.home.id">
+          <div *ngIf="event.detail == 'Yellow Card'">
+            {{event.player.name}} <img src="../assets/img/carton_jaune.png" style="width: 20px;">
+          </div>
+          <div *ngIf="event.detail == 'Red Card'">
+            {{event.player.name}} <img src="../assets/img/carton_rouge.png" style="width: 20px;">
+          </div>
+          <div *ngIf="event.type == 'Goal'">
+            {{event.player.name}} <img src="../assets/img/ballon.png" style="width: 20px;">
+          </div>
+          <div *ngIf="event.type == 'subst'">
+            {{event.assist.name}} <img src="../assets/img/changement.png" style="width: 20px;"> {{event.player.name}}
+          </div>
+        </div>
+        
+      </td>
+      <td>
+        <div *ngIf="event.time.extra == null">
+          {{event.time.elapsed}}
+        </div>
+        <div *ngIf="event.time.extra != null">
+          {{event.time.elapsed}} + {{event.time.extra}}
+        </div>
+        
+      </td>
+      <td>
+        <div *ngIf="event.team.id == teams.away.id">
+          <div *ngIf="event.detail == 'Yellow Card'">
+            {{event.player.name}} <img src="../assets/img/carton_jaune.png" style="width: 20px;">
+          </div>
+          <div *ngIf="event.detail == 'Red Card'">
+            {{event.player.name}} <img src="../assets/img/carton_rouge.png" style="width: 20px;">
+          </div>
+          <div *ngIf="event.type == 'Goal'">
+            {{event.player.name}} <img src="../assets/img/ballon.png" style="width: 20px;">
+          </div>
+          <div *ngIf="event.type == 'subst'">
+            {{event.assist.name}} <img src="../assets/img/changement.png" style="width: 20px;"> {{event.player.name}}
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<div class="container" *ngIf="lineup_home==null" >
     <div style="margin-left: -8%; margin-top: 9%">
         <img src="../assets/img/terrain-de-foot.png" style="width: 1300px" />
       </div>

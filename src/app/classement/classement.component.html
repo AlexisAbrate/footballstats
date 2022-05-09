@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="container mt-5">
+      <div class="container">
         <ul class="nav nav-tabs">
           <li class="nav-item">
             <a class="nav-link active" data-bs-toggle="tab" href="#tab_class"
@@ -26,12 +26,12 @@
             <a
               class="nav-link active"
               data-bs-toggle="tab"
-              href="calendar/{{ response.league.id }}/{{ journee }}/2021"
+              href="calendar"
               >Calendrier</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#stats"
+            <a class="nav-link active" data-bs-toggle="tab" href="/classement/{{response.league.id}}#stats"
               >Stats</a
             >
           </li>
@@ -81,64 +81,13 @@
           </div>
         </div>
 
-        <div class="tab-pane" id="calendar"></div>
+        <div class="tab-pane" id="stats">
+          Bonjour
+        </div>
       </div>
     </section>
 
-    <!--
-
-<section id="statligue">
-<div class="row">
-
-  <div class="col-4">
-    <div class="container">
-      <div class="col-md-4">
-        <table class="ws-list grid list-type-2">
-          <thead>
-            <tr><th class="stat-title">Buts Pour</th></tr>
-          </thead>
-          <tbody id="bodyTableau" class="text-center">
-            <tr *ngFor="let teamg of goalsfor">
-              <td class="overflow-text">
-                <a [routerLink]="['/team/', teamg.team.id]">{{teamg.team.name}}</a>
-              </td>
-              <td>
-                {{teamg.goals.for.total.total}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-4">
-
-    <div class="container">
-      <div class="col-md-4">
-        <table class="ws-list grid list-type-2">
-          <thead>
-            <tr><th class="stat-title">Buts Contre</th></tr>
-          </thead>
-          <tbody id="bodyTableau" class="text-center">
-            <tr *ngFor="let teama of goalsag">
-              <td class="overflow-text">
-                <a [routerLink]="['/team/', teama.team.id]">{{teama.team.name}}</a>
-              </td>
-              <td>
-                {{teama.goals.against.total.total}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-  </div>
-</div>
-</section>
-
--->
+ 
 
     <canvas id="chartbut">{{ chart }}</canvas>
 
@@ -272,7 +221,7 @@
         <span style="text-align: center; font-weight: bold;"
           >Onze type de {{ response.league.name }}</span>
       </div>
-      <div style="margin-left: 10%;">
+      <div id="terrain" style="margin-left: 10%;">
           <img src="../assets/img/demiterrain.png" style="width: 1560px;">
       </div>
       <div *ngFor="let attack of XIAttack">
