@@ -63,4 +63,11 @@ export class FixtureService {
      return rep
    }
 
+   private _url_headtohead = environment.apiUrl+'fixtures/headtohead/teams/'
+
+   getH2h(id1: Number, id2: Number) {
+     var rep = this._http.get(this._url_headtohead+id1+"/"+id2)
+     return rep
+   }
+
   }

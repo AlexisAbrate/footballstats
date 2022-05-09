@@ -1,8 +1,8 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AnyTxtRecord } from 'dns';
 import { FixtureService } from '../service/fixture.service';
+import { Chart } from 'chart.js';
+import { TeamsService } from '../service/teams.service';
 
 @Component({
   selector: 'app-fixture',
@@ -15,6 +15,7 @@ export class FixtureComponent implements OnInit {
   response: any
   events: [] | any
   fixtures: any
+  venue : any
   league: any
   teams: any
   goals: any
@@ -25,20 +26,35 @@ export class FixtureComponent implements OnInit {
   formation_away: [] | any
   lineup_home: [] | any
   lineup_away: [] | any
-  stats: [] | any
+  stats_home: [] | any
+  stats_away: [] | any
   players_home : {} | any
   players_away : {} | any
   scorer: [] | any
   status: any
-
-
-  constructor(private service : FixtureService, private route : ActivatedRoute) { }
+  headtohead: [] | any
+  id_team1 : any
+  id_team2 : any
+  pieh2h: [] | any
+ 
+  activeTab = {
+    chronologie: false,
+    face_to_face: true,
+    stats: false,
+    compo: false
+  
+  }
+  constructor(private service : FixtureService, private serviceTeam : TeamsService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     this._id = this.route.snapshot.paramMap.get('id')
+    this.id_team1 = this.route.snapshot.paramMap.get('team1')
+    this.id_team2 = this.route.snapshot.paramMap.get('team2')
+    console.log(this.id_team1)
+    console.log(this.id_team2)
     this.service.getFixtureSpe(this._id).subscribe(data => {
       this.response = data;
-      console.log(this.response)
+      //console.log(this.response)
       this.fixtures = this.response.fixture
       this.status = this.response.fixture.status.short
       this.league = this.response.league
@@ -50,7 +66,8 @@ export class FixtureComponent implements OnInit {
       this.formation_away= this.response.lineups[1].formation
       this.lineup_home = this.response.lineups[0].startXI
       this.lineup_away = this.response.lineups[1].startXI
-      this.stats = this.response.statistics
+      this.stats_home = this.response.statistics[0]
+      this.stats_away = this.response.statistics[1]
     })  
 
     this.service.getPhotosHome(this._id).subscribe(data => {
@@ -69,10 +86,78 @@ export class FixtureComponent implements OnInit {
       this.goals_home = data
     })
 
-    this.service.getGoalsAway(this._id).subscribe(data => {
-      this.goals_away = data
+    this.service.getH2h(this.id_team1,this.id_team2).subscribe(data => {
+      this.headtohead = data
+      console.log(this.headtohead)
+      var dataChart = []
+      var labelChart = [this.headtohead[0].teams.home.name,this.headtohead[0].teams.away.name,"Match nul"]
+      var winTeam1 = 0
+      var winTeam2 = 0
+      var draw = 0
+      console.log(this.headtohead.length)
+      console.log(this.headtohead[0])
+      for(let element of this.headtohead) {
+        if(element.teams.home.name == this.headtohead[0].teams.home.name) {
+          if(element.teams.home.winner == true){
+            winTeam1 = winTeam1 + 1
+          }
+        }
+
+        if(element.teams.home.name == this.headtohead[0].teams.away.name) {
+          if(element.teams.home.winner == true){
+            winTeam2 = winTeam2+ 1
+          }
+        }
+
+        if(element.teams.home.winner == null && element.teams.away.winner == null){
+          draw = draw + 1
+        }
+
+        if(element.teams.away.name == this.headtohead[0].teams.home.name) {
+          if(element.teams.away.winner == true){
+            winTeam1 = winTeam1 + 1
+          }
+        }
+
+        if(element.teams.away.name == this.headtohead[0].teams.away.name) {
+          if(element.teams.away.winner == true){
+            winTeam2 = winTeam2 + 1
+          }
+        }
+        
+      }
+
+      dataChart.push(winTeam1,winTeam2,draw)
+
+      console.log(labelChart)
+      console.log(dataChart)
+      this.pieh2h = new Chart('pieh2h', {
+        type : 'pie',
+        data: {
+          labels: labelChart,
+          datasets : [
+            {
+              label: "Victoire",
+              data: dataChart
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "But pour et contre durant la saison par equipe"
+            }
+          }
+        }
+      })
+      
     })
-    
+  
+    this.serviceTeam.getTeam(this.id_team2).subscribe(data => {
+      this.venue = data
+    })
 
   }
 

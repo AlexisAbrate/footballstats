@@ -33,8 +33,8 @@
                         <img src="{{match.teams.home.logo}}" style="width: 40px;"> 
                     </div>
                     <div class="col-1">
-                        <a *ngIf="match.fixture.status.long == 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]">{{match.score.fulltime.home}} - {{match.score.fulltime.away}}</a>
-                        <a *ngIf="match.fixture.status.long != 'Match Finished'" [routerLink]="['/fixture/', match.fixture.id]" style="align-items: center;">{{match.fixture.date | date:'HH:mm'}}</a>
+                        <a *ngIf="match.fixture.status.long == 'Match Finished'" [routerLink]="['/fixture/', match.teams.away.id, match.teams.home.id,match.fixture.id]">{{match.score.fulltime.home}} - {{match.score.fulltime.away}}</a>
+                        <a *ngIf="match.fixture.status.long != 'Match Finished'" [routerLink]="['/fixture/', match.teams.away.id, match.teams.home.id,match.fixture.id]" style="align-items: center;">{{match.fixture.date | date:'HH:mm'}}</a>
                     </div>
                     <div class="col-2">
                         <img src="{{match.teams.away.logo}}" style="width: 40px;">
