@@ -78,7 +78,7 @@
                   />
           </td>
           <td>
-            <a [routerLink]="['/fixture/', fix.fixture.id]">Feuille de match</a>
+            <a [routerLink]="['/fixture/', fix.teams.away.id, fix.teams.home.id, fix.fixture.id]">Feuille de match</a>
           </td>
         </tr>
       </tbody>

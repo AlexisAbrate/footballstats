@@ -15,79 +15,109 @@
         </div>
       </div>
 
-      <div class="container">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#tab_class"
-              >Classement</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              data-bs-toggle="tab"
-              href="calendar"
-              >Calendrier</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="/classement/{{response.league.id}}#stats"
-              >Stats</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <div class="tab-content container">
-        <div class="tab-pane active" id="tab_class" style="margin-top: 10px">
-          <div class="row">
-            <div class="col-lg-12">
-              <table
-                class="table-responsive table-hover result-point table-striped"
-                id="classement"
-              >
-                <thead class="point-table-head">
-                  <tr>
-                    <th>Classement</th>
-                    <th>Nom equipe</th>
-                    <th>Point</th>
-                    <th>Played</th>
-                    <th>Win</th>
-                    <th>Lose</th>
-                    <th>Draw</th>
-                    <th>Goalaverage</th>
-                    <th>Form</th>
-                  </tr>
-                </thead>
-                <tbody id="bodyTableau" class="text-center">
-                  <tr *ngFor="let team of teams">
-                    <td>{{ team.rank }}</td>
-                    <td>
-                      <a [routerLink]="['/team/', team.team.id]">{{
-                        team.team.name
-                      }}</a>
-                    </td>
-                    <td>{{ team.points }}</td>
-                    <td>{{ team.all.played }}</td>
-                    <td>{{ team.all.win }}</td>
-                    <td>{{ team.all.lose }}</td>
-                    <td>{{ team.all.draw }}</td>
-                    <td>{{ team.goalsDiff }}</td>
-                    <td>{{ team.form }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+      <div class="navbar navbar-light navbar-expand-md">
+        <div class="container">
+          <div class="d-flex justify-content-between w-100">
+            <ul class="navbar-nav w-100">
+              <li class="nav-item text-center col-3">
+                <a
+                  class="nav-link"
+                  [ngClass]="{ active: activeTab.tab_class }"
+                  (click)="
+                    activeTab.tab_class = !activeTab.tab_class;
+                    activeTab.calendar = false;
+                    activeTab.stats = false
+                  "
+                >
+                  Classement
+                </a>
+              </li>
+              <li class="nav-item text-center col-3">
+                <a
+                  class="nav-link"
+                  [ngClass]="{ active: activeTab.calendar }"
+                  (click)="
+                    activeTab.calendar = !activeTab.calendar;
+                    activeTab.tab_class = false;
+                    activeTab.stats = false
+                  "
+                >
+                  Calendar
+                </a>
+              </li>
+              <li class="nav-item text-center col-3">
+                <a
+                  class="nav-link"
+                  [ngClass]="{ active: activeTab.stats }"
+                  (click)="
+                    activeTab.stats = !activeTab.stats;
+                    activeTab.calendar = false;
+                    activeTab.tab_class = false
+                  "
+                >
+                  Stats
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <div class="tab-pane" id="stats">
-          Bonjour
+      <div *ngIf="activeTab.tab_class" class="container" id="tab_class">
+        <div class="row">
+          <div class="col-lg-12">
+            <table
+              class="table-responsive table-hover result-point table-striped"
+              id="classement"
+            >
+              <thead class="point-table-head">
+                <tr>
+                  <th>Classement</th>
+                  <th>Nom equipe</th>
+                  <th>Point</th>
+                  <th>Played</th>
+                  <th>Win</th>
+                  <th>Lose</th>
+                  <th>Draw</th>
+                  <th>Goalaverage</th>
+                  <th>Form</th>
+                </tr>
+              </thead>
+              <tbody id="bodyTableau" class="text-center">
+                <tr *ngFor="let team of teams">
+                  <td>{{ team.rank }}</td>
+                  <td>
+                    <a [routerLink]="['/team/', team.team.id]">{{
+                      team.team.name
+                    }}</a>
+                  </td>
+                  <td>{{ team.points }}</td>
+                  <td>{{ team.all.played }}</td>
+                  <td>{{ team.all.win }}</td>
+                  <td>{{ team.all.lose }}</td>
+                  <td>{{ team.all.draw }}</td>
+                  <td>{{ team.goalsDiff }}</td>
+                  <td>{{ team.form }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </section>
 
- 
+      <div *ngIf="activeTab.calendar" class="container" id="calendar">
+        <div class="row">
+
+        </div>
+      </div>
+
+        <div *ngIf="activeTab.stats" class="container" id="stats">
+          <div class="row">
+            <p>Bonjour</p>
+          </div>
+        </div>
+      
+    </section>
 
     <canvas id="chartbut">{{ chart }}</canvas>
 
@@ -218,94 +248,118 @@
 
     <section id="xi_type" style="margin-top: 50px">
       <div class="row">
-        <span style="text-align: center; font-weight: bold;"
-          >Onze type de {{ response.league.name }}</span>
+        <span style="text-align: center; font-weight: bold"
+          >Onze type de {{ response.league.name }}</span
+        >
       </div>
-      <div id="terrain" style="margin-left: 10%;">
-          <img src="../assets/img/demiterrain.png" style="width: 1560px;">
+      <div id="terrain" style="margin-left: 10%">
+        <img src="../assets/img/demiterrain.png" style="width: 1560px" />
       </div>
       <div *ngFor="let attack of XIAttack">
-        <div id="{{attack.id_class}}" class="text-center">
+        <div id="{{ attack.id_class }}" class="text-center">
           <div class="container" id="contour">
             <div class="row">
               <div>
-                <img  src="{{attack.logo}}" class="text-center" style="width: 50px; margin-top: 10px;">
+                <img
+                  src="{{ attack.logo }}"
+                  class="text-center"
+                  style="width: 50px; margin-top: 10px"
+                />
               </div>
             </div>
-            <div class="row"> 
-              <h5 style="font-size: 0.8em; font-weight: bold">{{attack.team}}</h5>
+            <div class="row">
+              <h5 style="font-size: 0.8em; font-weight: bold">
+                {{ attack.team }}
+              </h5>
             </div>
             <div class="row">
-              <p style="font-size: 0.8em; font-weight: bold">{{attack.name}}</p> 
+              <p style="font-size: 0.8em; font-weight: bold">
+                {{ attack.name }}
+              </p>
             </div>
-            <div class="row" style="font-size: 0.8em; font-weight: bold"> 
-              <p>{{attack.note}}</p>
+            <div class="row" style="font-size: 0.8em; font-weight: bold">
+              <p>{{ attack.note }}</p>
             </div>
           </div>
         </div>
       </div>
       <div *ngFor="let mid of XIMidfield">
-        <div id="{{mid.id_class}}" class="text-center">
+        <div id="{{ mid.id_class }}" class="text-center">
           <div class="container" id="contour">
             <div class="row">
               <div>
-                <img  src="{{mid.logo}}" class="text-center" style="width: 50px; margin-top: 10px;">
+                <img
+                  src="{{ mid.logo }}"
+                  class="text-center"
+                  style="width: 50px; margin-top: 10px"
+                />
               </div>
             </div>
-            <div class="row"> 
-              <h5 style="font-size: 0.8em; font-weight: bold">{{mid.team}}</h5>
+            <div class="row">
+              <h5 style="font-size: 0.8em; font-weight: bold">
+                {{ mid.team }}
+              </h5>
             </div>
             <div class="row">
-              <p style="font-size: 0.8em; font-weight: bold">{{mid.name}}</p> 
+              <p style="font-size: 0.8em; font-weight: bold">{{ mid.name }}</p>
             </div>
-            <div class="row" style="font-size: 0.8em; font-weight: bold"> 
-              <p>{{mid.note}}</p>
+            <div class="row" style="font-size: 0.8em; font-weight: bold">
+              <p>{{ mid.note }}</p>
             </div>
           </div>
         </div>
       </div>
       <div *ngFor="let def of XIDefend">
-        <div id="{{def.id_class}}" class="text-center">
+        <div id="{{ def.id_class }}" class="text-center">
           <div class="container" id="contour">
             <div class="row">
               <div>
-                <img  src="{{def.logo}}" class="text-center" style="width: 50px; margin-top: 10px;">
+                <img
+                  src="{{ def.logo }}"
+                  class="text-center"
+                  style="width: 50px; margin-top: 10px"
+                />
               </div>
             </div>
-            <div class="row"> 
-              <h5 style="font-size: 0.8em; font-weight: bold">{{def.team}}</h5>
+            <div class="row">
+              <h5 style="font-size: 0.8em; font-weight: bold">
+                {{ def.team }}
+              </h5>
             </div>
             <div class="row">
-              <p style="font-size: 0.8em; font-weight: bold">{{def.name}}</p> 
+              <p style="font-size: 0.8em; font-weight: bold">{{ def.name }}</p>
             </div>
-            <div class="row" style="font-size: 0.8em; font-weight: bold"> 
-              <p>{{def.note}}</p>
+            <div class="row" style="font-size: 0.8em; font-weight: bold">
+              <p>{{ def.note }}</p>
             </div>
           </div>
         </div>
       </div>
 
       <div *ngFor="let g of XIGoal">
-        <div id="{{g.id_class}}" class="text-center">
+        <div id="{{ g.id_class }}" class="text-center">
           <div class="container" id="contour">
             <div class="row">
               <div>
-                <img  src="{{g.logo}}" class="text-center" style="width: 50px; margin-top: 10px;">
+                <img
+                  src="{{ g.logo }}"
+                  class="text-center"
+                  style="width: 50px; margin-top: 10px"
+                />
               </div>
             </div>
-            <div class="row"> 
-              <h5 style="font-size: 0.8em; font-weight: bold;">{{g.team}}</h5>
+            <div class="row">
+              <h5 style="font-size: 0.8em; font-weight: bold">{{ g.team }}</h5>
             </div>
             <div class="row">
-              <p style="font-size: 0.8em; font-weight: bold">{{g.name}}</p> 
+              <p style="font-size: 0.8em; font-weight: bold">{{ g.name }}</p>
             </div>
-            <div class="row" style="font-size: 0.8em; font-weight: bold"> 
-              <p>{{g.note}}</p>
+            <div class="row" style="font-size: 0.8em; font-weight: bold">
+              <p>{{ g.note }}</p>
             </div>
           </div>
         </div>
       </div>
-
     </section>
 
     <link

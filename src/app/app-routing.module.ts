@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'classement/:id', component: ClassementComponent},
   {path: 'team/:id', component : TeamComponent},
   {path: 'login', component : LoginComponent},
-  {path: 'fixture/:id', component : FixtureComponent},
+  {path: 'fixture/:team1/:team2/:id', component : FixtureComponent},
   {path: 'choixchamp', component: ChoixChampionnatClassementComponent},
   {path: 'calendar/:id/:journee/:season', component: CalendarComponent},
   {path: 'players/:id', component: PlayersComponent}

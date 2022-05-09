@@ -37,8 +37,7 @@
             </div>
             <br />
             <div>
-              {{ goala.assist.name
-              }}<img src="../assets/img/passde.png" style="width: 20px" />
+              {{goala.assist.name}}<img src="../assets/img/passde.png" style="width: 20px" />
             </div>
           </div>
         </div>
@@ -74,7 +73,46 @@
   </div>
 </div>
 
-<div class="container" id="chronologie">
+
+<div class="navbar navbar-light navbar-expand-md">
+  <div class="container">
+    <div class="d-flex justify-content-between w-100">
+      <ul class="navbar-nav w-100">
+        <li class="nav-item text-center col-3">
+          <a class="nav-link" 
+          [ngClass]="{'active' : activeTab.chronologie}" 
+          (click)="activeTab.chronologie = !activeTab.chronologie; activeTab.compo = false; activeTab.face_to_face = false; activeTab.stats = false;">
+            Chronologie
+          </a>
+        </li>
+        <li class="nav-item text-center col-3">
+          <a class="nav-link" 
+          [ngClass]="{'active' : activeTab.face_to_face}"
+          (click)="activeTab.face_to_face = !activeTab.face_to_face; activeTab.compo = false; activeTab.chronologie = false; activeTab.stats = false;">
+            Dernieres oppositions
+          </a>
+        </li>
+        <li class="nav-item text-center col-3">
+          <a class="nav-link" 
+          [ngClass]="{'active' : activeTab.stats}" 
+          (click)="activeTab.stats = !activeTab.stats; activeTab.compo = false; activeTab.face_to_face = false; activeTab.chronologie = false;">
+            Stats
+          </a>
+        </li>
+        <li class="nav-item text-center col-3">
+          <a class="nav-link" 
+          [ngClass]="{'active' : activeTab.compo}" 
+          (click)="activeTab.compo = !activeTab.compo; activeTab.face_to_face = false;  activeTab.stats = false; activeTab.chronologie = false;">
+            Compo
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf = "activeTab.chronologie" class="container" id="chronologie">
 <span>
   Deroulé du match
 </span>
@@ -131,8 +169,119 @@
 </table>
 </div>
 
+<div *ngIf="activeTab.face_to_face" class="container" id="face_to_face">
+<div class="row">
+  <div *ngFor="let hth of headtohead">
+    <div class="row">
+      <div class="col-2">
+        <img src="{{hth.teams.home.logo}}" style="width: 40px;">
+      </div>
+      <div class="col-2">
+        {{hth.goals.home}} - {{hth.goals.away}}
+      </div>
+      <div class="col-2">
+        <img src="{{hth.teams.away.logo}}" style="width: 40px;">
+      </div>
+      <div class="col-2">
+        {{hth.fixture.date | date:'dd-MM-yyyy'}}
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="row">
+  <div class="chartBox">
+    <canvas id="pieh2h">{{pieh2h}}</canvas>
+  </div>
+</div>
+</div>
 
-<div class="container" *ngIf="lineup_home==null" >
+<div *ngIf="activeTab.stats" class="container" id="stats">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <span>Statistiques Equipe</span>
+        <table width="900px">
+          <thead>
+            <th><img src="{{teams.home.logo}}" width="40px"></th><th></th><th><img src="{{teams.away.logo}}" width="40px"></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{stats_home.statistics[0].value}}</td><td>Tirs Cadrés</td><td>{{stats_away.statistics[0].value}}</td>  
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[1].value}}</td><td>Tirs Non Cadrés</td><td>{{stats_away.statistics[1].value}}</td>  
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[2].value}}</td><td>Total tirs</td><td>{{stats_away.statistics[2].value}}</td>  
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[3].value}}</td><td>Tirs Bloqués</td><td>{{stats_away.statistics[3].value}}</td>  
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[4].value}}</td><td>Tirs à l'interieur de la surface</td><td>{{stats_away.statistics[4].value}}</td>  
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[5].value}}</td><td>Tirs à l'extérieur de la surface</td><td>{{stats_away.statistics[5].value}}</td>  
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[6].value}}</td><td>Fautes</td><td>{{stats_away.statistics[6].value}}</td>  
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[7].value}}</td><td>Corner</td><td>{{stats_away.statistics[7].value}}</td>  
+            </tr>
+            <tr *ngIf="stats_home.statistics[8].value != null && stats_away.statistics[8].value != null">
+              <td>{{stats_home.statistics[8].value}}</td><td>Hors jeu</td><td>{{stats_away.statistics[8].value}}</td> 
+            </tr>
+            <tr *ngIf="stats_home.statistics[8].value == null && stats_away.statistics[8].value == null">
+              <td>0</td><td>Hors jeu</td><td>0</td> 
+            </tr>
+            <tr *ngIf="stats_home.statistics[8].value == null && stats_away.statistics[8].value != null">
+              <td>0</td><td>Hors jeu</td><td>{{stats_away.statistics[8].value}}</td> 
+            </tr>
+            <tr *ngIf="stats_home.statistics[8].value != null && stats_away.statistics[8].value == null">
+              <td>{{stats_home.statistics[8].value}}</td><td>Hors jeu</td><td>0</td> 
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[9].value}}</td><td>Possession</td><td>{{stats_away.statistics[9].value}}</td>  
+            </tr>  
+            <tr>
+              <td>{{stats_home.statistics[10].value}}</td><td>Cartons jaune</td><td>{{stats_away.statistics[10].value}}</td>  
+            </tr>  
+            <tr *ngIf="stats_home.statistics[11].value != null && stats_away.statistics[11].value != null">
+              <td>{{stats_home.statistics[11].value}}</td><td>Cartons rouge</td><td>{{stats_away.statistics[11].value}}</td> 
+            </tr>
+            <tr *ngIf="stats_home.statistics[11].value == null && stats_away.statistics[11].value == null">
+              <td>0</td><td>Cartons rouge</td><td>0</td> 
+            </tr>
+            <tr *ngIf="stats_home.statistics[11].value == null && stats_away.statistics[11].value != null">
+              <td>0</td><td>Cartons rouge</td><td>{{stats_away.statistics[11].value}}</td> 
+            </tr>
+            <tr *ngIf="stats_home.statistics[11].value != null && stats_away.statistics[11].value == null">
+              <td>{{stats_home.statistics[11].value}}</td><td>Cartons rouge</td><td>0</td> 
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[12].value}}</td><td>Arrêts</td><td>{{stats_away.statistics[12].value}}</td>  
+            </tr>  
+            <tr>
+              <td>{{stats_home.statistics[13].value}}</td><td>Total de passes</td><td>{{stats_away.statistics[13].value}}</td>  
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[14].value}}</td><td>Total de passes reussies</td><td>{{stats_away.statistics[14].value}}</td>  
+            </tr>
+            <tr>
+              <td>{{stats_home.statistics[15].value}}</td><td>Pourcentage passes reussies</td><td>{{stats_away.statistics[15].value}}</td>  
+            </tr>            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="activeTab.compo" class="container" id="compo">
+  <div class="container" *ngIf="lineup_home!=null" id="terrain_compo" >
     <div style="margin-left: -8%; margin-top: 9%">
         <img src="../assets/img/terrain-de-foot.png" style="width: 1300px" />
       </div>
@@ -173,4 +322,6 @@
         </div>
       </div>    
 </div>
+</div>
+
 
