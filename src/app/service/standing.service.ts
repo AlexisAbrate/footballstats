@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class StandingService {
   getStandings(id : Number){
     var rep = this._http.get(this._url_classement+"/2021/"+id)
     console.log(rep)
+    console.log(this._url_classement)
     return rep;
 }
 
