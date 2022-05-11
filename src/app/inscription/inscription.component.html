@@ -1,16 +1,16 @@
 <div class="container col-md-6">
-    <h1 style="color : red">User Login</h1>
+    <h1 style="color : red">Creez votre compte</h1>
     <div>
-        <form (ngSubmit)="userLogin()">
+        <form (ngSubmit)="inscription()">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Email address</label>
                 <input type="email" class="form-control" [(ngModel)]="user.email" id="email" name="email" placeholder="name@example.com">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Password</label>
-                <input type="password" class="form-control" [(ngModel)]="user.password"  id="password" name="password" placeholder="name@example.com">
+                <input type="password" class="form-control" [(ngModel)]="user.password"  id="password" name="password" placeholder="******">
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">Inscription</button>
         </form>
     </div>
 </div>

@@ -17,6 +17,8 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { DatePipe } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 
 
@@ -32,14 +34,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FixtureComponent,
     PlayersComponent,
     ChoixChampionnatClassementComponent,
-    CalendarComponent
+    CalendarComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgChartsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
