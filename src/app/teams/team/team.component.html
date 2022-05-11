@@ -77,8 +77,11 @@
                   class="rounded-circle"
                   />
           </td>
-          <td>
-            <a [routerLink]="['/fixture/', fix.teams.away.id, fix.teams.home.id, fix.fixture.id]">Feuille de match</a>
+          <td *ngIf="fix.fixture.status.short != 'Not Started'">
+              <a [routerLink]="['/fixture/', fix.teams.away.id, fix.teams.home.id, fix.fixture.id]">Feuille de match</a>
+          </td>
+          <td *ngIf="fix.fixture.status.short == 'Not Started'">
+            <a [routerLink]="['/home/']">Feuille de match</a>
           </td>
         </tr>
       </tbody>
