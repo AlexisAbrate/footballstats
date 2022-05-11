@@ -12,6 +12,7 @@ import { ChoixChampionnatService } from './service/choix-championnat.service';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ChoixChampionnatClassementComponent } from './choix-championnat-classement/choix-championnat-classement.component';
 import { PlayersComponent } from './players/players.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'fixture/:team1/:team2/:id', component : FixtureComponent},
   {path: 'choixchamp', component: ChoixChampionnatClassementComponent},
   {path: 'calendar/:id/:journee/:season', component: CalendarComponent},
-  {path: 'players/:id', component: PlayersComponent}
+  {path: 'players/:id', component: PlayersComponent},
+  {path: 'inscription', component: InscriptionComponent}
 ];
 
 @NgModule({
