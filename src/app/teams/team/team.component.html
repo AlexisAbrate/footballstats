@@ -1,7 +1,7 @@
 <div class="row" style="background: black">
   <div class="row" style="margin-top: 20px; margin-left: 50px;">
     <div class="col-5">
-
+      <a [routerLink]="['/classement/', league.league.id]"><img src={{league.league.logo}} class="img-fluid" /></a>
     </div>
     <div class="col-6">
       <div id="logo">
@@ -57,255 +57,131 @@
     </div><!-- /.blog-card -->
     </div>
   </div>
-  <div class="col-2">
+  <div class="col-7">
+    <div class="container" id="fixture" style="align-items: center;">
+      <div class="cadre-table-scroll">
+        <table class="table-scroll">
+          <thead class="bg-light">
+            <tr>
+              <th>Journée</th>
+              <th>Equipe Domicile</th>
+              <th>Resultat</th>
+              <th>Equipe exterieure</th>
+              <th>Feuille de match</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fix of fixture">
+              <td>
+                <div class="d-flex align-items-center">
+                    <p class="fw-bold mb-1">{{fix.league.round}}</p>
+                </div>
+              </td>
+              <td>
+                <img
+                      src={{fix.teams.home.logo}}
+                      alt=""
+                      style="width: 45px; height: 45px"
+                      class="rounded-circle"
+                      />
+              </td>
+              <td>
+                <span class="badge badge-success rounded-pill d-inline">{{fix.score.fulltime.home}} - {{fix.score.fulltime.away}}</span>
+              </td>
+              <td>
+                <img
+                      src={{fix.teams.away.logo}}
+                      alt=""
+                      style="width: 45px; height: 45px"
+                      class="rounded-circle"
+                      />
+              </td>
+              <td>
+                  <a [routerLink]="['/fixture/', fix.teams.away.id, fix.teams.home.id, fix.fixture.id]">Feuille de match</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="container" id="players" style="margin-top: 50px;">
+      <div class="cadre-table-scroll">
+        <table class="table-scroll">
+          <thead class="bg-light">
+            <tr>
+              <th>Prenom</th>
+              <th>Age</th>
+              <th>Taille</th>
+              <th>Poids</th>
+              <th>Nationalité</th>
+              <th>Photo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let play of players">
+              <td>
+                <div class="d-flex align-items-center">
+                  <a [routerLink]="['/players/', play.player.id]">{{play.player.firstname}} {{play.player.lastname}}</a>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <p class="fw-bold mb-1">{{play.player.age}}</p>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <p class="fw-bold mb-1">{{play.player.height}}</p>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <p class="fw-bold mb-1">{{play.player.weight}}</p>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <p class="fw-bold mb-1">{{play.player.nationality}}</p>
+                </div>
+              </td>
+              <td>
+                <img
+                      src={{play.player.photo}}
+                      alt=""
+                      style="width: 45px; height: 45px"
+                      class="rounded-circle"
+                      />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>
+     
+    </div>
+  </div>
+  <div class="col-sm-6">
     <div class="container">
-
+      <canvas id="pie_min">{{pie_min}}</canvas>
     </div>
   </div>
-  <div class="col-5">
-
-  </div>
 </div>
-
-<!--
 
 <div class="row">
-  <div class="container" id="infos">
-    <div class="row">
-      <div class="card  "  id="cardInfo">
-        <div id="logo" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src={{team.logo}} class="img-fluid"/>
-        </div>
-      
-        <div class="card-body">
-          <h5 class="card-title">{{team.name}}</h5>
-          <p class="card-text">
-            
-          </p>
-        </div>
-      
-        <div class="card-footer">
-          <ul>
-            <li>Club fondé en {{team.founded}}</li>
-          </ul>
-        </div>
-      </div>
+  <div class="col-6">
+    <div class="container">
+      <canvas id="bar_fix">{{bar_fixtures}}</canvas>
     </div>
-    
-    
-    <div class="card  " id="stadeInfos">
-      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-        <img src={{venue.image}} class="img-fluid" />
-        <a href="#!">
-          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-        </a>
-      </div>
-    
-      <div class="card-body">
-        <ul>
-          <li>{{venue.name}}</li>
-          <li>Capacité : {{venue.capacity}}</li>
-          <li>{{venue.city}}</li>
-        </ul>
-    
-      </div>
+  </div>
+  <div class="col-6">
+    <div class="container">
+      <canvas id="polar_min">{{polar_min}}</canvas>
     </div>
   </div>
 </div>
-
-
-
-
-<div class="row">
-  <div class="container" id="fixture">
-    <div class="cadre-table-scroll">
-      <table class="table-scroll">
-        <thead class="bg-light">
-          <tr>
-            <th>Journée</th>
-            <th>Equipe Domicile</th>
-            <th>Resultat</th>
-            <th>Equipe exterieure</th>
-            <th>Feuille de match</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let fix of fixture">
-            <td>
-              <div class="d-flex align-items-center">
-                  <p class="fw-bold mb-1">{{fix.league.round}}</p>
-              </div>
-            </td>
-            <td>
-              <img
-                    src={{fix.teams.home.logo}}
-                    alt=""
-                    style="width: 45px; height: 45px"
-                    class="rounded-circle"
-                    />
-            </td>
-            <td>
-              <span class="badge badge-success rounded-pill d-inline">{{fix.score.fulltime.home}} - {{fix.score.fulltime.away}}</span>
-            </td>
-            <td>
-              <img
-                    src={{fix.teams.away.logo}}
-                    alt=""
-                    style="width: 45px; height: 45px"
-                    class="rounded-circle"
-                    />
-            </td>
-            <td *ngIf="fix.fixture.status.short != 'Not Started'">
-                <a [routerLink]="['/fixture/', fix.teams.away.id, fix.teams.home.id, fix.fixture.id]">Feuille de match</a>
-            </td>
-            <td *ngIf="fix.fixture.status.short == 'Not Started'">
-              <a [routerLink]="['/home/']">Feuille de match</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    
-    </div>
-   
-  </div>
-</div>
-
-
-<div class="container">
-  <canvas id="bar_fix">{{bar_fixtures}}</canvas>
-</div>
-
-<div class="container">
-  <canvas id="polar_min">{{polar_min}}</canvas>
-</div>
-
-<div class="container" id="players">
-  <div class="cadre-table-scroll">
-    <table class="table-scroll">
-      <thead class="bg-light">
-        <tr>
-          <th>Prenom</th>
-          <th>Age</th>
-          <th>Taille</th>
-          <th>Poids</th>
-          <th>Nationalité</th>
-          <th>Photo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let play of players">
-          <td>
-            <div class="d-flex align-items-center">
-              <a [routerLink]="['/players/', play.player.id]">{{play.player.firstname}} {{play.player.lastname}}</a>
-            </div>
-          </td>
-          <td>
-            <div class="d-flex align-items-center">
-              <p class="fw-bold mb-1">{{play.player.age}}</p>
-            </div>
-          </td>
-          <td>
-            <div class="d-flex align-items-center">
-              <p class="fw-bold mb-1">{{play.player.height}}</p>
-            </div>
-          </td>
-          <td>
-            <div class="d-flex align-items-center">
-              <p class="fw-bold mb-1">{{play.player.weight}}</p>
-            </div>
-          </td>
-          <td>
-            <div class="d-flex align-items-center">
-              <p class="fw-bold mb-1">{{play.player.nationality}}</p>
-            </div>
-          </td>
-          <td>
-            <img
-                  src={{play.player.photo}}
-                  alt=""
-                  style="width: 45px; height: 45px"
-                  class="rounded-circle"
-                  />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  
-  </div>
- 
-</div>
-
-<div class="container">
-  <canvas id="pie_min">{{pie_min}}</canvas>
-</div>
-
--->
-
-
-
-<!--
-
-<div class="container" id="stats">
-  <div class="col-12">
-    <div id="menu-tab">
-      <div id="page-wrap">
-        <div class="tabs">
-          <div class="tab"><input id="tab-1" checked="checked" name="tab-group-1" type="radio" />
-            <label
-            for="tab-1">Buts</label>
-            <div class="content">
-              <div class="row">
-                <div class="col-sm-6">
-               
-                    <label>chartType (pour proportions):</label><select ng-model="monoChartType">
-                        <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
-                    </select><br/>
-                 
-                    <div class="chart-wrapper">
-                      <canvas baseChart
-                          [datasets]="goalChartData" 
-                          [labels]="goalChartLabels" 
-                          [type]="goalChartType" >
-                      </canvas>
-                  </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-
-        <div class="tab"><input id="tab-2" name="tab-group-1" type="radio" />
-          <label
-          for="tab-2">Passes</label>
-
-          <div class="content">
-            <div class="row">
-              <div class="col-sm-6">
-            
-                  <label>chartType (pour proportions):</label><select ng-model="monoChartType">
-                      <option *ngFor="let ct of monoChartTypes">{{ct}}</option>
-                  </select><br/>
-                
-                  <div class="chart-wrapper">
-                      <canvas baseChart
-                          [datasets]="goalChartData" 
-                          [labels]="goalChartLabels" 
-                          [type]="goalChartType" >
-                      </canvas>
-                  </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        
-      </div>
-
-    </div>
-    
-  </div>
-
-</div>
-
-</div>
--->

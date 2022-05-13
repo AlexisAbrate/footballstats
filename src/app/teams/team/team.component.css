@@ -23,15 +23,6 @@
     
 }
 
-#fixture {
-
-    position: absolute;
-    top : 80px;
-    left : 450px;
-    
-    
-}
-
 
 .cadre-table-scroll {
     display: inline-block;
@@ -55,6 +46,11 @@
 	padding: 0;
   
 	}
+
+#fixture {
+  border: solid;
+  margin-top: 50px;
+}
 
 #stats {
     width: 500px;
@@ -304,9 +300,7 @@ hr {
   background: #D0BB57;
 }
 
-a{
-    color: white;
-}
+
 
 .intro {
   width: 170px;

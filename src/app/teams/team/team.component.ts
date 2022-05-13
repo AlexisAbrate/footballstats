@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TeamsService } from 'src/app/service/teams.service';
 import { ActivatedRoute } from '@angular/router';
 import { Chart } from 'chart.js';
-
+import { ChoixChampionnatService } from 'src/app/service/choix-championnat.service'
 
 
 @Component({
@@ -16,6 +16,7 @@ export class TeamComponent implements OnInit {
   response_fixture: any
   team : any
   venue : any
+  league: any
   _id : any
   fixture: [] | any
   players: [] | any
@@ -64,7 +65,7 @@ export class TeamComponent implements OnInit {
   multiChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
 */
 
-  constructor(private service : TeamsService, private route : ActivatedRoute) {
+  constructor(private service : TeamsService, private service_league : ChoixChampionnatService, private route : ActivatedRoute) {
 
    }
 
@@ -83,6 +84,11 @@ export class TeamComponent implements OnInit {
       this.service.getFixtures(this._id).subscribe(data => {
           this.fixture = data        
           console.log(this.fixture)
+          this.service_league.getLeague(this.fixture[0].league.id).subscribe(dataL => {
+            console.log("la fixture 0 : " + this.fixture[0].league.id)
+            this.league = dataL
+            console.log("Ceci est : " + this.league)
+          })
         });
 
         this.service.getPlayers(this._id).subscribe(data => {
