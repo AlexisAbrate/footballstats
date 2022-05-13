@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg" id="header">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">FootballStats</a>
+      <a class="navbar-brand" href="#"><img src="../assets/img/logo_white_large.png" width="200px"/></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -9,7 +9,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="">Home</a>
+            <a class="nav-link active" aria-current="page" href="">Accueil</a>
           </li>
 
           <li class="nav-item">
@@ -17,7 +17,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="classement">Classement</a>
+            <a class="nav-link" href="todaymatch">Matchs du jour</a>
           </li>
 
           <li class="nav-item">
@@ -47,21 +47,23 @@
 
         
 
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit" style="margin-right: 10px;">Search</button>
+        <form class="d-flex" style="position: absolute; left: 850px">
+          <input class="form-control me-2" type="search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" style="margin-right: 500px;">Recherche</button>
         </form>
         <div *ngIf="connect==null">
-          <button class="btn btn-outline-success"><a href="login">Connexion</a></button>
-          <button class="btn btn-outline-success" style="margin-left: 10px;"><a href="inscription">Inscription</a></button>
+          <button class="btn btn-outline-success" id="connect"><a href="login">Connexion</a></button>
+          <button class="btn btn-outline-success" style="margin-left: 10px;" id="inscript"><a href="inscription">Inscription</a></button>
         </div>
-        <div *ngIf="connect!=null">
-          <button class="btn btn-outline-success"><a href="login">{{connect}}</a></button>
-          <form (ngSubmit)="signOut()">
-            <button class="btn btn-outline-success" type="submit">Deconnexion</button>
+        <div *ngIf="connect!=null" style="margin-right: 10px;">
+            <button class="btn btn-outline-success" id="use">{{connect}}</button>
+        </div>
+        <div *ngIf="connect!=null" >
+          <form (ngSubmit)="signOut()" class="d-flex">
+            <button class="btn btn-outline-success" id="disconnect" type="submit">Deconnexion</button>
           </form>
-        </div>
-        
+         </div>
+       
         
        
       </div>

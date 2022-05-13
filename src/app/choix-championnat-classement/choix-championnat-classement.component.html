@@ -1,4 +1,4 @@
-<div class="col-12">
+<!--<div class="col-12">
     <div class="row" style="margin-top: 100px;">
         <div class="col-2">
             <div class="container">
@@ -33,7 +33,204 @@
             </div>
     </div>
 </div>
-    
+-->
+
+
+   <!--
+<div class="row">
+        <div class="col-2">
+            <div class="card" style="width: 20rem; margin-top: 100px; margin-left: 50px;">
+                <img class="card-img-top" src="{{ligue1.league.logo}}" alt="Card image cap" style="width: 100%; height: 400px;">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">France</h5>
+                  <a href="#" class="btn btn-primary" style="margin-left: 30px">Aller sur la fiche de la ligue</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="card" style="width: 20rem; margin-top: 100px; margin-left: 100px;">
+                <img class="card-img-top" src="{{bundes.league.logo}}" alt="Card image cap" style="width: 100%; height: 400px;">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">France</h5>
+                  <a href="#" class="btn btn-primary" style="margin-left: 30px">Aller sur la fiche de la ligue</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="card" style="width: 20rem; margin-top: 100px;margin-left: 150px;">
+                <img class="card-img-top" src="{{liga.league.logo}}" alt="Card image cap" style="width: 100%; height: 400px;">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">France</h5>
+                  <a href="#" class="btn btn-primary" style="margin-left: 30px">Aller sur la fiche de la ligue</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="card" style="width: 20rem; margin-top: 100px;margin-left: 200px;">
+                <img class="card-img-top" src="{{premier.league.logo}}" alt="Card image cap" style="width: 100%; height: 400px;">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">France</h5>
+                  <a href="#" class="btn btn-primary" style="margin-left: 30px">Aller sur la fiche de la ligue</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="card" style="width: 20rem; margin-top: 100px;margin-left: 250px;">
+                <img class="card-img-top" src="{{serie.league.logo}}" alt="Card image cap" style="width: 100%; height: 400px;">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">France</h5>
+                  <a href="#" class="btn btn-primary" style="margin-left: 30px">Aller sur la fiche de la ligue</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   --> 
+
+    <div class="row">
+        <div class="blog-card ligue1" style="margin-left: -895px;" >
+            <!--<div class="title-content">
+              <h3>SPRING FEVER</h3>
+              <hr />
+              <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
+            </div> /.title-content -->
+            <div class="card-info">
+                LIGUE 1 <br>
+                 <a [routerLink]="['/classement/', ligue1.league.id]">Fiche de la ligue</a>
+                 <br>
+                 <br>
+                 Le Championnat de France de football, appelé Ligue 1 (ou Ligue 1 Uber Eats pour des raisons de sponsoring avec Uber EatsNote 3) est le championnat professionnel de football masculin de plus haut niveau de la Fédération française de football. Il regroupe les meilleurs clubs de France et de Monaco.
+               </div><!-- /.card-info -->
+            <!--<div class="utility-info">
+              <ul class="utility-list">
+                <li class="comments">12</li>
+                <li class="date">03.12.2015</li>
+              </ul>
+            </div> /.utility-info -->
+            <!-- overlays -->
+            <div class="gradient-overlay"></div>
+            <div class="color-overlay"></div>
+        </div><!-- /.blog-card -->
+        <div class="blog-card bundes" style="margin-left: -535px;">
+            <!--<div class="title-content">
+              <h3>SPRING FEVER</h3>
+              <hr />
+              <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
+            </div> /.title-content -->
+            <div class="card-info">
+                BUNDESLIGA <br>
+                 <a [routerLink]="['/classement/', bundes.league.id]">Fiche de la ligue</a>
+                 <br>
+                 <br>
+                 Le Championnat d'Allemagne de football est créé en 1903. Jusqu'en 1963, le statut des clubs est amateur et le championnat national consiste en une phase finale entre les différents champions régionaux. Le championnat professionnel à poule unique, la Bundesliga, est créé en 1963
+               </div><!-- /.card-info -->
+            <!--<div class="utility-info">
+              <ul class="utility-list">
+                <li class="comments">12</li>
+                <li class="date">03.12.2015</li>
+              </ul>
+            </div> /.utility-info -->
+            <!-- overlays -->
+            <div class="gradient-overlay"></div>
+            <div class="color-overlay"></div>
+        </div><!-- /.blog-card -->
+        <div class="blog-card liga">
+            <!--<div class="title-content">
+              <h3>LIGA</h3>
+              <hr />
+              <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
+            </div> /.title-content -->
+            <div class="card-info">
+                LIGA <br>
+                 <a [routerLink]="['/classement/', bundes.league.id]">Fiche de la ligue</a>
+                 <br>
+                 <br>
+                 Le championnat d'Espagne de l'élite est la Primera División entre 1929 et 2008 puis Liga BBVA de 2008 à 2016 et LaLiga Santander depuis 2016. Dans le langage courant, le terme de « Liga » est souvent utilisé pour désigner la compétition, bien que liga signifie simplement « ligue » en espagnol. L'antichambre de cette division est le championnat d'Espagne de football de deuxième division.
+               </div>
+            <!--<div class="utility-info">
+              <ul class="utility-list">
+                <li class="comments">12</li>
+                <li class="date">03.12.2015</li>
+              </ul>
+            </div> /.utility-info -->
+            <!-- overlays -->
+            <div class="gradient-overlay"></div>
+            <div class="color-overlay"></div>
+        </div><!-- /.blog-card -->
+        <div class="blog-card serie" style="margin-left: 185px;">
+            <!--<div class="title-content">
+              <h3>SPRING FEVER</h3>
+              <hr />
+              <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
+            </div> /.title-content -->
+            <div class="card-info">
+                SERIE A <br>
+                 <a [routerLink]="['/classement/', serie.league.id]">Fiche de la ligue</a>
+                 <br>
+                 <br>
+                 Le Championnat d'Italie de football, dénommé Serie A (prononcé : [ˈsɛːrje ˈa]), ou Serie A italienne (car le championnat brésilien est aussi nommé Série A), ou encore Serie A TIM pour des raisons de sponsoring avec TIM, est une compétition de football qui représente en Italie le sommet de la hiérarchie du football. La seconde division italienne est la Serie B.
+               </div><!-- /.card-info -->
+            <!--<div class="utility-info">
+              <ul class="utility-list">
+                <li class="comments">12</li>
+                <li class="date">03.12.2015</li>
+              </ul>
+            </div> /.utility-info -->
+            <!-- overlays -->
+            <div class="gradient-overlay"></div>
+            <div class="color-overlay"></div>
+        </div><!-- /.blog-card -->
+        <div class="blog-card premier" style="margin-left: 545px;">
+            <!--<div class="title-content">
+              <h3>SPRING FEVER</h3>
+              <hr />
+              <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
+            </div> /.title-content -->
+            <div class="card-info">
+             PREMIER LEAGUE <br>
+              <a [routerLink]="['/classement/', premier.league.id]">Fiche de la ligue</a>
+            <br>
+            <br>
+            Le championnat d'Angleterre de football est la plus importante compétition de football en Angleterre. Lancée en 1888 par la Football Association sous le nom de « Football League », la compétition laisse place en 1992 à la Premier League, transformée en Barclays Premier League de 2004 à 2016 avant de reprendre son appellation précédente.
+            </div><!-- /.card-info -->
+            <!--<div class="utility-info">
+              <ul class="utility-list">
+               li class="comments">12</li>
+                <li class="date">03.12.2015</li>
+              </ul>
+            </div> /.utility-info -->
+            <!-- overlays -->
+            <div class="gradient-overlay"></div>
+            <div class="color-overlay"></div>
+        </div><!-- /.blog-card -->
+    </div>
+
+    <div class="row">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+   
     
 
-    
+  

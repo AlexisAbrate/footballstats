@@ -34,9 +34,9 @@ export class ClassementComponent implements OnInit {
   playsGoal : [] | any
  
 activeTab = {
-  tab_class: true,
+  tab_class: false,
   calendar: false,
-  stats: false
+  stats: true
 
 }
   

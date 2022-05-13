@@ -96,7 +96,7 @@ export class TeamComponent implements OnInit {
           }
 
           this.pie_min = new Chart('pie_min', {
-            type : 'pie',
+            type : 'bar',
             data: {
               labels: dataPlayer,
               datasets : [

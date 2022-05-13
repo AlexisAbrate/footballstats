@@ -8,14 +8,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FixtureComponent } from './fixture/fixture.component';
-import { ChoixChampionnatService } from './service/choix-championnat.service';
+import { AcceuilComponent } from './acceuil/acceuil.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ChoixChampionnatClassementComponent } from './choix-championnat-classement/choix-championnat-classement.component';
 import { PlayersComponent } from './players/players.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: 'todaymatch', component: HomeComponent},
   {path: 'classement/:id', component: ClassementComponent},
   {path: 'team/:id', component : TeamComponent},
   {path: 'login', component : LoginComponent},
@@ -23,6 +23,7 @@ const routes: Routes = [
   {path: 'choixchamp', component: ChoixChampionnatClassementComponent},
   {path: 'calendar/:id/:journee/:season', component: CalendarComponent},
   {path: 'players/:id', component: PlayersComponent},
+  {path: '', component: AcceuilComponent},
   {path: 'inscription', component: InscriptionComponent}
 ];
 

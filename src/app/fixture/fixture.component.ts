@@ -147,7 +147,7 @@ export class FixtureComponent implements OnInit {
           plugins: {
             title: {
               display: true,
-              text: "But pour et contre durant la saison par equipe"
+              text: "6 derniers face à face"
             }
           }
         }

@@ -1,16 +1,38 @@
-<div class="container col-md-6">
-    <h1 style="color : red">User Login</h1>
-    <div>
-        <form (ngSubmit)="userLogin()">
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control" [(ngModel)]="user.email" id="email" name="email" placeholder="name@example.com">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-6 col-md-8 login-box">
+            <div class="col-lg-12 login-key">
+                <i aria-hidden="true"></i>
             </div>
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Password</label>
-                <input type="password" class="form-control" [(ngModel)]="user.password"  id="password" name="password" placeholder="name@example.com">
+            <div class="col-lg-12 login-title">
+                CONNEXION
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+
+            <div class="col-lg-12 login-form">
+                <div class="col-lg-12 login-form">
+                    <form (ngSubmit)="userLogin()">
+                        <div class="form-group">
+                            <label class="form-control-label" style="color: white;">EMAIL</label>
+                            <input type="email" class="form-control" [(ngModel)]="user.email" id="email" name="email" placeholder="name@example.com">
+                            
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" style="color: white;">PASSWORD</label>
+                            <input type="password" class="form-control" [(ngModel)]="user.password"  id="password" name="password" placeholder="******">
+                        </div>
+
+                        <div class="col-lg-12 loginbttm">
+                            <div class="col-lg-6 login-btm login-text">
+                                <!-- Error Message -->
+                            </div>
+                            <div class="col-lg-6 login-btm login-button">
+                                <button type="submit"style="color: white;" class="btn btn-outline-primary">Se connecter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-2"></div>
+        </div>
     </div>
-</div>

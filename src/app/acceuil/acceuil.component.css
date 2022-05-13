@@ -1,0 +1,22 @@
+#logo {
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    left: 400px;
+    top: 290px;
+}
+
+#carousel {
+
+    z-index: 1;
+}
+
+p {
+    position: absolute;
+    top: 600px;
+    left: 600px;
+    z-index: 1;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+}

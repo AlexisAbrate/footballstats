@@ -1,95 +1,175 @@
-<div class="container" id="infos">
+<div class="row" style="background: black">
+  <div class="row" style="margin-top: 20px; margin-left: 50px;">
+    <div class="col-5">
 
-  <div class="card  "  id="cardInfo">
-    <div id="logo" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-      <img src={{team.logo}} class="img-fluid"/>
     </div>
-  
-    <div class="card-body">
-      <h5 class="card-title">{{team.name}}</h5>
-      <p class="card-text">
-        
-      </p>
-    </div>
-  
-    <div class="card-footer">
-      <ul>
-        <li>Club fondé en {{team.founded}}</li>
-      </ul>
+    <div class="col-6">
+      <div id="logo">
+        <img src={{team.logo}} class="img-fluid" />
+      </div>
+      <br>
+      <div>
+        <h5 class="card-title" style="color: white;">{{team.name}}</h5>
+      </div>
+      <br>
+      <div>
+        <h5 class="card-title" style="color: white;">Club fondé en {{team.founded}}</h5>
+
+      </div>
     </div>
   </div>
-  
-  <div class="card  " id="stadeInfos">
-    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-      <img src={{venue.image}} class="img-fluid" />
-      <a href="#!">
-        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-      </a>
-    </div>
-  
-    <div class="card-body">
-      <ul>
-        <li>{{venue.name}}</li>
-        <li>Capacité : {{venue.capacity}}</li>
-        <li>{{venue.city}}</li>
-      </ul>
-  
-    </div>
-  </div>
-
 </div>
 
-<div class="container" id="fixture">
-  <div class="cadre-table-scroll">
-    <table class="table-scroll">
-      <thead class="bg-light">
-        <tr>
-          <th>Journée</th>
-          <th>Equipe Domicile</th>
-          <th>Resultat</th>
-          <th>Equipe exterieure</th>
-          <th>Feuille de match</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let fix of fixture">
-          <td>
-            <div class="d-flex align-items-center">
-                <p class="fw-bold mb-1">{{fix.league.round}}</p>
-            </div>
-          </td>
-          <td>
-            <img
-                  src={{fix.teams.home.logo}}
-                  alt=""
-                  style="width: 45px; height: 45px"
-                  class="rounded-circle"
-                  />
-          </td>
-          <td>
-            <span class="badge badge-success rounded-pill d-inline">{{fix.score.fulltime.home}} - {{fix.score.fulltime.away}}</span>
-          </td>
-          <td>
-            <img
-                  src={{fix.teams.away.logo}}
-                  alt=""
-                  style="width: 45px; height: 45px"
-                  class="rounded-circle"
-                  />
-          </td>
-          <td *ngIf="fix.fixture.status.short != 'Not Started'">
-              <a [routerLink]="['/fixture/', fix.teams.away.id, fix.teams.home.id, fix.fixture.id]">Feuille de match</a>
-          </td>
-          <td *ngIf="fix.fixture.status.short == 'Not Started'">
-            <a [routerLink]="['/home/']">Feuille de match</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  
+<div class="row">
+  <div class="col-5">
+    <div class="container" style="position: relative">
+      <div class="blog-card league" style="background: url({{venue.image}}); background-size: cover;">
+        <div class="title-content">
+          <h3>{{venue.name}}</h3>
+          <hr />
+          <div class="intro">{{venue.city}}</div>
+        </div> <!--/.title-content -->
+        <div class="card-info">
+             <br>
+             <ul>
+               <li>
+                 {{venue.capacity}} places assises
+               </li>
+               <br>
+               <li>
+                Adresse : {{venue.address}}
+              </li>
+              <br>
+              <li>
+                Ville : {{venue.city}}
+              </li>
+             </ul>
+          </div><!-- /.card-info -->
+       <!-- <div class="utility-info">
+          <ul class="utility-list">
+            <li class="comments">12</li>
+            <li class="date">03.12.2015</li>
+          </ul>
+        </div> /.utility-info -->
+        <!-- overlays -->
+        <div class="gradient-overlay"></div>
+        <div class="color-overlay"></div>
+    </div><!-- /.blog-card -->
+    </div>
   </div>
- 
+  <div class="col-2">
+    <div class="container">
+
+    </div>
+  </div>
+  <div class="col-5">
+
+  </div>
 </div>
+
+<!--
+
+<div class="row">
+  <div class="container" id="infos">
+    <div class="row">
+      <div class="card  "  id="cardInfo">
+        <div id="logo" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src={{team.logo}} class="img-fluid"/>
+        </div>
+      
+        <div class="card-body">
+          <h5 class="card-title">{{team.name}}</h5>
+          <p class="card-text">
+            
+          </p>
+        </div>
+      
+        <div class="card-footer">
+          <ul>
+            <li>Club fondé en {{team.founded}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="card  " id="stadeInfos">
+      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <img src={{venue.image}} class="img-fluid" />
+        <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+        </a>
+      </div>
+    
+      <div class="card-body">
+        <ul>
+          <li>{{venue.name}}</li>
+          <li>Capacité : {{venue.capacity}}</li>
+          <li>{{venue.city}}</li>
+        </ul>
+    
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="container" id="fixture">
+    <div class="cadre-table-scroll">
+      <table class="table-scroll">
+        <thead class="bg-light">
+          <tr>
+            <th>Journée</th>
+            <th>Equipe Domicile</th>
+            <th>Resultat</th>
+            <th>Equipe exterieure</th>
+            <th>Feuille de match</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fix of fixture">
+            <td>
+              <div class="d-flex align-items-center">
+                  <p class="fw-bold mb-1">{{fix.league.round}}</p>
+              </div>
+            </td>
+            <td>
+              <img
+                    src={{fix.teams.home.logo}}
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    class="rounded-circle"
+                    />
+            </td>
+            <td>
+              <span class="badge badge-success rounded-pill d-inline">{{fix.score.fulltime.home}} - {{fix.score.fulltime.away}}</span>
+            </td>
+            <td>
+              <img
+                    src={{fix.teams.away.logo}}
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    class="rounded-circle"
+                    />
+            </td>
+            <td *ngIf="fix.fixture.status.short != 'Not Started'">
+                <a [routerLink]="['/fixture/', fix.teams.away.id, fix.teams.home.id, fix.fixture.id]">Feuille de match</a>
+            </td>
+            <td *ngIf="fix.fixture.status.short == 'Not Started'">
+              <a [routerLink]="['/home/']">Feuille de match</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+    </div>
+   
+  </div>
+</div>
+
 
 <div class="container">
   <canvas id="bar_fix">{{bar_fixtures}}</canvas>
@@ -158,6 +238,9 @@
 <div class="container">
   <canvas id="pie_min">{{pie_min}}</canvas>
 </div>
+
+-->
+
 
 
 <!--

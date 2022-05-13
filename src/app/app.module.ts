@@ -19,6 +19,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { AcceuilComponent } from './acceuil/acceuil.component';
 
 
 
@@ -35,7 +36,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
     PlayersComponent,
     ChoixChampionnatClassementComponent,
     CalendarComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    AcceuilComponent
   ],
   imports: [
     BrowserModule,
