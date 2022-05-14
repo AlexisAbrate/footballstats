@@ -1,4 +1,179 @@
-<div class="row">
+<div class="row" id="fisrtRow">
+    <div class="col-5">
+        <div class="card" id="team" style="width: 18rem; margin-top: 20px; border-radius: 2em;">
+            <a [routerLink]="['/team/', player.statistics[0].team.id]" style="border-radius: 2em; align-self: center; height: 150px; width: 150px;"><img class="card-img-top" src="{{player.statistics[0].team.logo}}"
+                 alt="Card image cap"></a>
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">{{player.statistics[0].team.name}}</h5>
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card" id="player" style="width: 18rem; margin-top: 20px; border-radius: 2em;">
+            <img class="card-img-top" src="{{player.player.photo}}" style="border-radius: 2em;" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">{{player.player.name}} -
+                    {{player.statistics[0].games.position}}</h5>
+                <ul>
+                    <li>
+                        Pays : {{player.player.nationality}}
+                    </li>
+                    <li>
+                        Age : {{player.player.age}}
+                    </li>
+                    <li>
+                        Date de naissance : {{player.player.birth.date | date:'dd-MM-yyyy'}}
+                    </li>
+                    <li>
+                        Lieu de naissance : {{player.player.birth.place}}
+                    </li>
+                    <li>
+                        Taille : {{player.player.height}}
+                    </li>
+                    <li>
+                        Poids : {{player.player.weight}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <div class="card" id="league" style="width: 18rem; margin-top: 20px; border-radius: 2em; margin-left: 400px;">
+            <a [routerLink]="['/classement/', player.statistics[0].league.id]" style="align-self: center;"><img class="card-img-top" src="{{player.statistics[0].league.logo}}"
+                style="border-radius: 2em; height: 150px; width: 150px;" alt="Card image cap"></a>
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">{{player.statistics[0].league.name}}</h5>
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row" style="margin-top: 20px;">
+    <div class="col-2">
+        <div class="card" id="matchs" style="width: 18rem; margin-top: 20px; border-radius: 2em;">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">Tous les matchs</h5>
+                <ul>
+                    <li>
+                        Minutes jouées : {{player.statistics[0].games.minutes}}
+                    </li>
+                    <li>
+                        Apparition : {{player.statistics[0].games.appearences}}
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card" id="attaque" style="width: 18rem; margin-top: 20px; border-radius: 2em;">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">Attaque</h5>
+                <ul>
+                    <li>
+                        Buts : {{player.statistics[0].goals.total}}
+                    </li>
+                    <li>
+                        Tirs: {{player.statistics[0].shots.total}}
+                    </li>
+                    <li>
+                        Tirs Cadres : {{player.statistics[0].shots.on}}
+                    </li>
+                    <li>
+                        Passes decisives : {{player.statistics[0].goals.assists}}
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card" id="dribbles" style="width: 18rem; margin-top: 20px; border-radius: 2em;">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">Dribbles</h5>
+                <ul> 
+                    <li>
+                        Tentés : {{player.statistics[0].dribbles.attempts}}
+                    </li>
+                    <li>
+                        Reussi : {{player.statistics[0].dribbles.success}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card" id="discipline" style="width: 18rem; margin-top: 20px; border-radius: 2em;">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">Discipline</h5>
+                <ul>
+                    <li>
+                        Fautes commises : {{player.statistics[0].fouls.committed}}
+                    </li>
+                    <li>
+                        Fautes subies : {{player.statistics[0].fouls.drawn}}
+                    </li>
+                    <li>
+                        Cartons jaunes: {{player.statistics[0].cards.yellow}}
+                    </li>
+                    <li>
+                        Cartons rouges : {{player.statistics[0].cards.red}}
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card" id="defense" style="width: 18rem; margin-top: 20px; border-radius: 2em;">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">Defense</h5>
+                <ul>
+                    <li>
+                        Tacles : {{player.statistics[0].tackles.total}}
+                    </li>
+                    <li>
+                        Tirs bloqués : {{player.statistics[0].tackles.blocks}}
+                    </li>
+                    <li>
+                        Interceptions : {{player.statistics[0].tackles.interceptions}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card" id="remplacement" style="width: 18rem; margin-top: 20px; border-radius: 2em;">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">Remplacement</h5>
+                <ul>
+                    <li>
+                        Entrant : {{player.statistics[0].substitutes.in}}
+                    </li>
+                    <li>
+                        Sortant : {{player.statistics[0].substitutes.out}}
+                    </li>
+                    <li>
+                        Depart sur le banc : {{player.statistics[0].substitutes.bench}} 
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+
+</div>
+<!--<div class="row">
     <div class="col-sm-4">
         <a [routerLink]="['/team/', player.statistics[0].team.id]"><img src={{player.statistics[0].team.logo}} class="img-fluid" /></a>
         
@@ -133,5 +308,4 @@
              </div>
         </div>
     </div>
-</div>
-
+</div>-->

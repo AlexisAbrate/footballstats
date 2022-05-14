@@ -36,7 +36,8 @@ export class ClassementComponent implements OnInit {
 activeTab = {
   tab_class: false,
   calendar: false,
-  stats: true
+  stats: true,
+  xitype: false
 
 }
   

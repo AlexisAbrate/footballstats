@@ -5,23 +5,24 @@
   <link rel="stylesheet" type="text/css" href="/html/css/classement.css" />
 </head>
 
-<body>
+<body style="background-color: #3A6073;">
   <section class="content-info">
-    <div class="container" id="nom_ligue">
-      <div class="row justify-content-center">
+    <div class="container" id="nom_ligue" >
+      <div class="row justify-content-center" style="text-align: center;">
         <h2>Classement {{ response.league.name }}</h2>
-        <img src="{{ response.league.logo }}" style="width: 100px; height: 100px" />
+        <img src="{{ response.league.logo }}" style="width: 100px; height: 100px; margin-top: 20px;" />
       </div>
     </div>
 
-    <div class="navbar navbar-light navbar-expand-md">
+    <div class="navbar navbar-light navbar-expand-md" style="align-content: center;">
       <div class="container">
         <div class="d-flex justify-content-between w-100">
-          <ul class="navbar-nav w-100">
+          <ul class="navbar-nav w-100" style="background-color: #D3FBD8; border-radius: 2em; font-weight: bold;">
             <li class="nav-item text-center col-3">
               <a class="nav-link" [ngClass]="{ active: activeTab.tab_class }" (click)="
                     activeTab.tab_class = !activeTab.tab_class;
                     activeTab.calendar = false;
+                    activeTab.xitype = false;
                     activeTab.stats = false
                   ">
                 Classement
@@ -30,19 +31,31 @@
             <li class="nav-item text-center col-3">
               <a class="nav-link" [ngClass]="{ active: activeTab.stats }" (click)="
                     activeTab.stats = !activeTab.stats;
+                    activeTab.xitype = false;
+                    activeTab.tab_class = false;
                     activeTab.calendar = false;
-                    activeTab.tab_class = false
                   ">
                 Stats
               </a>
             </li>
             <li class="nav-item text-center col-3">
+              <a class="nav-link" [ngClass]="{ active: activeTab.xitype }" (click)="
+                    activeTab.xitype = !activeTab.xitype;
+                    activeTab.tab_class = false;
+                    activeTab.stats = false;
+                    activeTab.calendar = false;
+                  ">
+                XI Type de l'année
+              </a>
+            </li>
+            <li class="nav-item text-center col-3">
               <a class="nav-link" [ngClass]="{ active: activeTab.calendar }" (click)="
-                    activeTab.calendar = !activeTab.calendar;
+                    activeTab.stats = !activeTab.calendar;
+                    activeTab.xitype = false;
                     activeTab.tab_class = false;
                     activeTab.stats = false
                   ">
-                XI Type de l'année
+                Calendrier
               </a>
             </li>
           </ul>
@@ -52,23 +65,23 @@
 
     <div *ngIf="activeTab.tab_class" class="container" id="tab_class">
       <div class="row">
-        <div class="col-lg-12">
-          <table class="table-responsive table-hover result-point table-striped" id="classement">
-            <thead class="point-table-head">
+        <div class="col-12">
+          <table class="content-table" id="classement">
+            <thead>
               <tr>
                 <th>Classement</th>
                 <th>Nom equipe</th>
-                <th>Point</th>
-                <th>Played</th>
-                <th>Win</th>
-                <th>Lose</th>
-                <th>Draw</th>
+                <th>Points</th>
+                <th>Matchs joués</th>
+                <th>Matchs gagnés</th>
+                <th>Matchs perdus</th>
+                <th>Matchs nuls</th>
                 <th>Goalaverage</th>
-                <th>Form</th>
+                <th>Forme</th>
               </tr>
             </thead>
             <tbody id="bodyTableau" class="text-center">
-              <tr *ngFor="let team of teams">
+              <tr *ngFor="let team of teams" id="_{{team.rank}}_{{response.league.id}}">
                 <td>{{ team.rank }}</td>
                 <td>
                   <a [routerLink]="['/team/', team.team.id]">{{
@@ -87,16 +100,60 @@
           </table>
         </div>
       </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-1">
+            <div id="carreChLeague" style="display: block;"></div>
+          </div>
+          <div class="col-4">
+            <div style="font-weight: bold; margin-left: -50px;">Qualification en Ligue des Champions</div>
+          </div>
+        </div>
+        <div class="row" *ngIf="response.league.id == 61">
+          <div class="col-1">
+            <div id="carre3eme" style="display: block;"></div>
+          </div>
+          <div class="col-4">
+            <div style="font-weight: bold; margin-left: -50px;">Qualification en tour préliminaire de la Ligue des
+              Champions</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1">
+            <div id="carreEuLeague" style="display: block;"></div>
+          </div>
+          <div class="col-4">
+            <div style="font-weight: bold; margin-left: -50px;">Qualification en Ligue Europa</div>
+          </div>
+        </div>
+        <div class="row" *ngIf="response.league.id == 78 || response.league.id == 61">
+          <div class="col-1">
+            <div id="carreBar" style="display: block;"></div>
+          </div>
+          <div class="col-4">
+            <div style="font-weight: bold; margin-left: -50px;">Barrage pour descente en division inférieure</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1">
+            <div id="carreRel" style="display: block;"></div>
+          </div>
+          <div class="col-4">
+            <div style="font-weight: bold; margin-left: -50px;">Relégation en division inférieure</div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div *ngIf="activeTab.calendar" class="container" id="calendar">
+    <div *ngIf="activeTab.xitype" class="container" id="xitype">
       <div class="row">
         <section id="xi_type" style="margin-top: 50px">
           <div class="row">
             <span style="text-align: center; font-weight: bold">Onze type de {{ response.league.name }}</span>
           </div>
           <div id="terrain" style="margin-left: -200px">
-            <img src="../assets/img/demiterrain.png" style="width: 1560px" />
+            <img src="../assets/img/demiterrain.png" style="width: 1560px;" />
           </div>
           <div *ngFor="let attack of XIAttack">
             <div id="{{ attack.id_class }}" class="text-center">
@@ -194,7 +251,7 @@
     <div *ngIf="activeTab.stats" class="container" id="stats">
       <div class="row">
         <div class="row">
-          <span style="text-align: center">Meilleures equipes de {{ response.league.name }}</span>
+          <span style="text-align: center; font-weight: bold; margin-top: 20px; text-decoration: underline;">Meilleures equipes de {{ response.league.name }}</span>
         </div>
         <div style="border: solid; border-radius: 2em; margin-top: 30px;">
           <canvas id="chartbut">{{ chart }}</canvas>
@@ -205,20 +262,20 @@
         <br />
 
         <div class="row">
-          <span style="text-align: center">Meilleurs joueurs de {{ response.league.name }}</span>
+          <span style="text-align: center; font-weight: bold; margin-top: 40px; text-decoration: underline;">Meilleurs joueurs de {{ response.league.name }}</span>
         </div>
 
         <section id="scorer">
           <div class="row">
             <div class="container">
               <br />
-              <span>Buteur</span>
-              <table class="ws-list grid list-type-2">
+              <span style="text-align: center; font-weight: bold;">Buteurs</span>
+              <table class="content-table" style="width: 100%;">
                 <thead>
                   <tr>
-                    <th class="stat-title">Joueur</th>
-                    <th class="stat-title">Equipe</th>
-                    <th class="stat-title">Nombre de buts</th>
+                    <th>Joueur</th>
+                    <th>Equipe</th>
+                    <th>Nombre de buts</th>
                   </tr>
                 </thead>
                 <tbody id="bodyTableauScorer" class="text-center">
@@ -233,7 +290,7 @@
                       <a [routerLink]="['/team/', score.statistics[0].team.id]"><img
                           src="{{ score.statistics[0].team.logo }}" /></a>
                     </td>
-                    <td>
+                    <td style="font-size: 15px;">
                       {{ score.statistics[0].goals.total }}
                     </td>
                   </tr>
@@ -248,7 +305,7 @@
             <div class="container">
               <br />
               <span>Passeur</span>
-              <table class="ws-list grid list-type-2">
+              <table class="content-table" style="width: 100%;">
                 <thead>
                   <tr>
                     <th class="stat-title">Joueur</th>
@@ -268,7 +325,7 @@
                       <a name="top" [routerLink]="['/team/', assist.statistics[0].team.id]"><img
                           src="{{ assist.statistics[0].team.logo }}" /></a>
                     </td>
-                    <td>
+                    <td style="font-size: 15px;">
                       {{ assist.statistics[0].goals.assists }}
                     </td>
                   </tr>
@@ -283,7 +340,7 @@
             <div class="container">
               <br />
               <span>Mieux notés</span>
-              <table class="ws-list grid list-type-2">
+              <table class="content-table" style="width: 100%;">
                 <thead>
                   <tr>
                     <th class="stat-title">Joueur</th>
@@ -304,10 +361,10 @@
                       <a name="top" [routerLink]="['/team/', player.statistics[0].team.id]"><img
                           src="{{ player.statistics[0].team.logo }}" /></a>
                     </td>
-                    <td>
+                    <td style="font-size: 15px;">
                       {{ player.statistics[0].games.appearences }}
                     </td>
-                    <td>
+                    <td style="font-size: 15px;">
                       {{ player.statistics[0].games.rating }}
                     </td>
                   </tr>

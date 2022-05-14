@@ -8,59 +8,283 @@
     padding-bottom: 100px
   }
 
-  
-  table {
-    width: 100%;
-    background: #fff;
-    border: 1px solid #dedede
+  #classement {
+    width: 1100px;
+  }
+ 
+
+  * {
+    font-family: sans-serif; /* Change your font family */
   }
   
-  table thead tr th {
-    padding: 20px;
-    border: 1px solid #dedede;
-    color: #000
+  .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
   
-  table.table-striped tbody tr:nth-of-type(odd) {
-    background: #f9f9f9
+  .content-table thead {
+    background: linear-gradient(59deg, #3A6073, #16222A);
+    color: #ffffff;
+    text-align: center;
+    align-items: left;
+    font-weight: bold;
+  }
+
+  .content-table img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .content-table tr {
+    text-align: center;
+    font-weight: bold;
   }
   
-  table.result-point tr td.number {
-    width: 100px;
-    position: relative
+  
+  .content-table th,
+  .content-table td {
+    padding: 12px 15px;
+  }
+
+
+  
+  .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
   }
   
-  .text-left {
-    text-align: left !important
+  .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
   }
   
-  table tr td {
-    padding: 10px 20px;
-    border: 1px solid #dedede
+  .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #16222A;
   }
   
-  table.result-point tr td .fa.fa-caret-up {
-    color: green
+  .content-table tbody tr:hover {
+    font-weight: bold;
+    color:#EB9928;
   }
   
-  table.result-point tr td .fa {
-    font-size: 20px;
-    position: absolute;
-    right: 20px
-  }
-  
-  table tr td {
-    padding: 10px 40px;
-    border: 1px solid #dedede
-  }
-  
-  table tr td img {
-    max-width: 32px;
-    float: left;
-    margin-right: 11px;
-    margin-top: 1px;
-    border: 1px solid #dedede
-  }
+a {
+  color: black;
+}
+
+#_1_61 {
+  background-color: #009879;
+}
+
+#_2_61 {
+  background-color: #009879;
+}
+
+#_3_61 {
+  background-color: lightseagreen;
+}
+
+#_18_61 {
+  background-color: orange
+}
+
+#_19_61 {
+  background-color: red
+}
+
+#_20_61 {
+  background-color: red
+}
+
+
+
+
+#_1_78 {
+  background-color: #009879;
+}
+
+#_2_78 {
+  background-color: #009879;
+}
+
+#_3_78 {
+  background-color: #009879;
+}
+
+
+#_4_78 {
+  background-color: #009879;
+}
+
+#_5_78 {
+  background-color: lightgreen;
+}
+
+
+#_16_78 {
+  background-color: orange
+}
+
+#_17_78 {
+  background-color: red
+}
+
+#_18_78 {
+  background-color: red
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#_1_140 {
+  background-color: #009879;
+}
+
+#_2_140 {
+  background-color: #009879;
+}
+
+#_3_140 {
+  background-color: #009879;
+}
+
+#_4_140{
+  background-color: #009879;
+}
+
+#_5_140 {
+  background-color: lightgreen;
+}
+
+#_18_140 {
+  background-color: red
+}
+
+#_19_140 {
+  background-color: red
+}
+
+#_20_140 {
+  background-color: red
+}
+
+
+
+
+#_1_39 {
+  background-color: #009879;
+}
+
+#_2_39 {
+  background-color: #009879;
+}
+
+#_3_39 {
+  background-color: #009879;
+}
+
+#_4_39 {
+  background-color: #009879;
+}
+
+#_5_39 {
+  background-color: lightgreen;
+}
+
+#_18_39 {
+  background-color: red
+}
+
+#_19_39 {
+  background-color: red
+}
+
+#_20_39 {
+  background-color: red
+}
+
+
+#_1_135 {
+  background-color: #009879;
+}
+
+#_2_135 {
+  background-color: #009879;
+}
+
+#_3_135{
+  background-color: #009879;
+}
+
+#_4_135{
+  background-color: #009879;
+}
+
+#_5_135{
+  background-color: lightgreen;
+}
+
+#_18_135 {
+  background-color: red
+}
+
+#_19_135{
+  background-color: red
+}
+
+#_20_135{
+  background-color: red
+}
+
+#carreChLeague {
+    width  : 20px;
+    height : 20px;
+    background : green;
+    margin-bottom: 10px;
+}
+
+#carreEuLeague {
+  width  : 20px;
+  height : 20px;
+  background : lightgreen;
+  margin-bottom: 10px;
+}
+
+
+#carre3eme {
+  width  : 20px;
+  height : 20px;
+  background : lightseagreen;
+  margin-bottom: 10px;
+}
+
+#carreBar {
+  width  : 20px;
+  height : 20px;
+  background :  orange;
+  margin-bottom: 10px;
+}
+
+#carreRel {
+  width  : 20px;
+  height : 20px;
+  background : red;
+  margin-bottom: 10px;
+}
 
   #attacker1 {
     position: absolute; 

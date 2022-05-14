@@ -82,7 +82,7 @@ export class TeamComponent implements OnInit {
         this.venue = this.response_infos.venue;
       })
       this.service.getFixtures(this._id).subscribe(data => {
-          this.fixture = data        
+          this.fixture = data
           console.log(this.fixture)
           this.service_league.getLeague(this.fixture[0].league.id).subscribe(dataL => {
             console.log("la fixture 0 : " + this.fixture[0].league.id)

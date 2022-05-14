@@ -1,0 +1,46 @@
+#player {
+    background-color: #3A6073;
+    z-index: 1;
+}
+
+#league {
+    background-color: #3A6073;
+    z-index: 1;
+}
+
+#team{
+    background-color: #3A6073;
+    z-index: 1;
+}
+
+h5 {
+    color: aliceblue;
+}
+
+li {
+    color: aliceblue;
+}
+
+#firstRow{
+    background-image: url(/src/assets/img/gazon.jpg);
+}
+
+#matchs {
+    background-color: #3A6073;
+}
+
+#attaque {
+    background-color: #3A6073;
+}
+#dribbles {
+    background-color: #3A6073;
+}
+#discipline {
+    background-color: #3A6073;
+}
+#defense {
+    background-color: #3A6073;
+}
+#remplacement {
+    background-color: #3A6073;
+}
