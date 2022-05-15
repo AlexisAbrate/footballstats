@@ -1,15 +1,14 @@
 
-<div class="">
-    <div class="container" style="align-items: center; margin-top: 20px; margin-bottom: 20px;">
-        <div class="row">
+    <div class="container">
+        <span class="custom-dropdown big">
             <select>
                 <option value="yesterday">Hier</option>
                 <option value="{{todayDate}}" selected>Aujourd'hui</option>
                 <option value="tomorrow">Demain</option>
               </select>
-        </div>
+        </span>
     </div>
-</div>
+
     
 
     <div *ngIf="fixturesFrance.length > 0" class="container" id="match_france">

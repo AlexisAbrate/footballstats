@@ -5,9 +5,9 @@
   <link rel="stylesheet" type="text/css" href="/html/css/classement.css" />
 </head>
 
-<body style="background-color: #3A6073;">
+<body>
   <section class="content-info">
-    <div class="container" id="nom_ligue" >
+    <div class="container" id="nom_ligue">
       <div class="row justify-content-center" style="text-align: center;">
         <h2>Classement {{ response.league.name }}</h2>
         <img src="{{ response.league.logo }}" style="width: 100px; height: 100px; margin-top: 20px;" />
@@ -50,7 +50,7 @@
             </li>
             <li class="nav-item text-center col-3">
               <a class="nav-link" [ngClass]="{ active: activeTab.calendar }" (click)="
-                    activeTab.stats = !activeTab.calendar;
+                    activeTab.calendar = !activeTab.calendar;
                     activeTab.xitype = false;
                     activeTab.tab_class = false;
                     activeTab.stats = false
@@ -251,7 +251,8 @@
     <div *ngIf="activeTab.stats" class="container" id="stats">
       <div class="row">
         <div class="row">
-          <span style="text-align: center; font-weight: bold; margin-top: 20px; text-decoration: underline;">Meilleures equipes de {{ response.league.name }}</span>
+          <span style="text-align: center; font-weight: bold; margin-top: 20px; text-decoration: underline;">Meilleures
+            equipes de {{ response.league.name }}</span>
         </div>
         <div style="border: solid; border-radius: 2em; margin-top: 30px;">
           <canvas id="chartbut">{{ chart }}</canvas>
@@ -262,7 +263,8 @@
         <br />
 
         <div class="row">
-          <span style="text-align: center; font-weight: bold; margin-top: 40px; text-decoration: underline;">Meilleurs joueurs de {{ response.league.name }}</span>
+          <span style="text-align: center; font-weight: bold; margin-top: 40px; text-decoration: underline;">Meilleurs
+            joueurs de {{ response.league.name }}</span>
         </div>
 
         <section id="scorer">
@@ -373,6 +375,64 @@
             </div>
           </div>
         </section>
+
+      </div>
+    </div>
+
+    <div *ngIf="activeTab.calendar" class="container" id="calendar">
+      <div *ngFor="let match of calendrier">
+        <div class="row">
+          <div class="container">
+            <div class="match">
+              <div class="match-header">
+                <div class="match-tournament"><img src="{{match.league.logo}}" />Ligue 1</div>
+              </div>
+              <div class="match-content">
+                <div class="column">
+                  <div class="team team--home">
+                    <div class="team-logo">
+                      <img src="{{match.teams.home.logo}}" />
+                    </div>
+                    <h2 class="team-name">{{match.teams.home.name}}</h2>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="match-details">
+                    <div class="match-date">
+                      <strong> {{match.fixture.date | date:'dd-MM-yyyy'}}</strong>
+                    </div>
+                    <div class="match-score">
+                      <div *ngIf="match.fixture.status.short=='NS'">
+                        <span class="match-score-number match-score-number--leading">0</span>
+                        <span class="match-score-divider">:</span>
+                        <span class="match-score-number">0</span>
+                      </div>
+                      <div *ngIf="match.fixture.status.short!='NS'">
+                        <span
+                          class="match-score-number match-score-number--leading">{{match.score.fulltime.home}}</span>
+                        <span class="match-score-divider">:</span>
+                        <span class="match-score-number">{{match.score.fulltime.away}}</span>
+                      </div>
+                    </div>
+                    <div class="match-time-lapsed">
+                      <a *ngIf="match.fixture.status.long != 'Match Finished'"
+                        [routerLink]="['/fixture/', match.teams.away.id, match.teams.home.id,match.fixture.id]"
+                        style="align-items: center;">{{match.fixture.date | date:'HH:mm'}}</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="team team--away">
+                    <div class="team-logo">
+                      <img src="{{match.teams.away.logo}}" />
+                    </div>
+                    <h2 class="team-name">{{match.teams.away.name}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

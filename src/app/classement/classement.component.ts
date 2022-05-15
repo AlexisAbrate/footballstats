@@ -15,6 +15,7 @@ export class ClassementComponent implements OnInit {
   teams: any;
   _id: any
   journee: any
+  calendrier : [] | any
   goalsfor: [] | any 
   goalsag: [] | any 
   scorer : [] | any 
@@ -35,8 +36,8 @@ export class ClassementComponent implements OnInit {
  
 activeTab = {
   tab_class: false,
-  calendar: false,
-  stats: true,
+  calendar: true,
+  stats: false,
   xitype: false
 
 }
@@ -57,6 +58,11 @@ activeTab = {
       this.journee=this.teams[0].all.played
       console.log(this.journee)
       
+  })
+
+  this.standingService.get38Journee(this._id,2021).subscribe(data => {
+    this.calendrier = data
+    console.log("journee 38 :" + this.calendrier)
   })
 
  this.standingService.getGoalsFor(this._id).subscribe(data => {

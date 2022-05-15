@@ -7,11 +7,88 @@
   position: relative;
 }
 
+#recap {
+  font-weight: bold;
+}
+
+#h2h_id img{
+  width: 50px;
+  height: 50px;
+}
+
+#stats img {
+  width: 50px;
+  height: 50px;
+}
+
+#stats_id{
+
+}
+
+#stats {
+  margin-left: 450px
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead {
+  background: linear-gradient(59deg, #3A6073, #16222A);
+  color: #ffffff;
+  text-align: center;
+  align-items: left;
+  font-weight: bold;
+}
+
+.content-table img {
+  height: 20px;
+  width: 50px;
+}
+
+.content-table tr {
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #16222A;
+}
+
+.content-table tbody tr:hover {
+  font-weight: bold;
+  color:#EB9928;
+}
+
  a{
    color: white;
  }
 /* ------------------------- 5-4-1 HOME --------------------*/
-
+#chronologie {
+  margin-left: 450px;
+}
 /* Gardien */
 #h5-4-1_11 {
   position: absolute; 

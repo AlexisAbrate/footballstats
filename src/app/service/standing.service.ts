@@ -34,6 +34,13 @@ private _url_topscorer = environment.apiUrl+'classement/topscorer/'
     return rep;
 }
 
+private _url_38 = environment.apiUrl+'fixtures/38journee/'
+
+get38Journee(id: Number, season: Number) {
+  var rep = this._http.get(this._url_38+season+"/"+id)
+  return rep
+}
+
 private _url_topassist = environment.apiUrl+'classement/topassist/'
 
 getTopAssist(id : Number){
