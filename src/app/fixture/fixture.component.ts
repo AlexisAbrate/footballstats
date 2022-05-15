@@ -38,8 +38,8 @@ export class FixtureComponent implements OnInit {
   pieh2h: [] | any
  
   activeTab = {
-    chronologie: true,
-    face_to_face: false,
+    chronologie: false,
+    face_to_face: true,
     stats: false,
     compo: false
   
